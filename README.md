@@ -38,8 +38,17 @@ In this case INDIVIDUAL_REF_DB would be set to "ODOM_TISSUE_DB".
 
 The field "LIB_PREP_KIT" is used by OTP to select adapter sequences for trimming of RNAseq reads.
 Please check in your previous submission, if the library preparation kit that are using is registered in OTP (odcf-service@dkfz.de) or tell the ODCF
-which kit you have used and which adapter it contains. 
+which kit you have used and which adapter it contains.
 
 #### Minor changes
  -  Modified description banners in the bottom. It should be more clear now, that *all* fields are mandatory to fill
 out, not only those for ILSE.
+
+
+## Versioning
+
+This repository used calendar-versioning (https://calver.org/) according to the following scheme:
+
+`YY.0M-minor`
+
+Accordingly, the first version released in October, 2020 is tagged: *20.10-1*
