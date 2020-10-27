@@ -17,8 +17,8 @@ The following fields were renamed
   - BIOMATERIAL_ID -> SAMPLE_TYPE
 
 
-How to use:
-=================
+**How to use:**
+
 The purpose of these is to provide a clear reference point to the
 animals used. Thus, at the DKFZ, the INDIVIDUAL_REF_ID is the
 ANIMAL_NUMBER from the MOVI database or the spreadsheet-dump located at
@@ -34,7 +34,7 @@ T:/FREEZER -80/Freezer 2- Cambridge samples/Cambridge sample inventory
 lists/190307_harvested_tissue_mouse2.xlsx
 
 In this case INDIVIDUAL_REF_DB would be set to "ODOM_TISSUE_DB".
-=====================
+
 
 The field "LIB_PREP_KIT" is used by OTP to select adapter sequences for trimming of RNAseq reads.
 Please check in your previous submission, if the library preparation kit that are using is registered in OTP (odcf-service@dkfz.de) or tell the ODCF
