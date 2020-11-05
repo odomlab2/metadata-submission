@@ -4,6 +4,17 @@ This repository provides a version-controlled template for metadata tracking and
 
 ## Changelog
 
+
+### 2020-11-05
+
+Added fields to Chip-Seq: 
+
+ - ANTIBODY
+ - ANTIBODY_LOT_NUMBERwq
+ - ANTIBODY_TARGET
+  
+
+
 ### 2020-10-27
 
 #### Major Changes
