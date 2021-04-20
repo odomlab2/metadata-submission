@@ -3,62 +3,89 @@ PROJECT:
   description: ODCF Project Name as registered in OTP
   example: OE0538_DO0001
   regime: GUIDE
+  order: sample
 PATIENT_ID:
   description: Individual ID for OTP
-  example: another example
-  regime: [ GUIDE, Odomlab ]
+  example: mmus_01234
+  regime: GUIDE, Odomlab
+  order: sample
+
+
 SAMPLE_NAME_GPCF:
   description: Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.
   example: 0001_hgla_w23T14_sk-3
-  regime: ILSe
-Working ID:
+  regime: GPCF, ODCF
+  order: sample
+WORKING_ID:
   description: Researchers Working ID for a sample
   example: None
   regime: Odomlab
+  order: sample
+
 SPECIES:
-  description: Scietific name of a species.
+  description: Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.
   example: Mus musculus
   regime: ILSe
+  order: sample
+
 STRAIN:
   description: Identifier for the strain used. Use EFO, if possible
   example: ["CAST/Ej", "C57BL/6", "[CAST/EjxC57BL/6]F1"]
   regime: Odomlab
-Genome:
+  order: sample
+GENOME:
   description: Genome used for QC at GPCF
   example: mm10
   regime: ILSe
-Individual:
-  description: Researcher Individual ID
+  order: sample
+INDIVIDUAL:
+  description: ID for the individual (MOVI Number, Researcher's working ID)
   example: None
   regime: Odomlab
+  order: sample
+
 SAMPLE_TYPE:
   description: Sample Type used by OTP, describing samples *across* individual, please follow guidelines
   example: liver01, liver01-test01
   regime: GUIDE, Odomlab
+  order: sample
+
 TISSUE:
   description: Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.
   example: liver, skin, brain
   regime: Odomlab
-Genotype:
+  order: sample
+
+GENOTYPE:
   description: Genotype according to EFO. Typically wildtype if not GMO.
   example: "wild type"
   regime: Odomlab
+  order: sample
+
 # Phenotype data:
-Phenotype:
-  description: another description
-  example: another example
+PHENOTYPE:
+  description: Description of the phenotype
+  example: ["healthy", "tumor"]
+  order: sample
+
 SEX:
   description: Yes, please!
   example: female, male, unknown
   regime: ILSe, GUIDE, Odomlab
+  order: sample
+
 DATE_OF_BIRTH:
   description: Birthday of individual (format YYYY-MM-DD)
   example: 2020-03-31
   regime: Odomlab
+  order: sample
+
 DATE_OF_DEATH:
   description: Date of death (format YYYY-MM-DD)
   example: 2020-01-04
   regime: Odomlab
+  order: sample
+
 WAY_OF_DEATH:
   description: another description
   example:
@@ -66,6 +93,8 @@ WAY_OF_DEATH:
     CO2_neck_fracture
     isofloran_neck_fracture
   regime: Odomlab
+  order: sample
+
 TREATMENT:
   description: another description
   example:
@@ -74,144 +103,267 @@ TREATMENT:
     10w_DMBA/TPA
     DMBA/TPA_or_TPA
     TPA
+    UV
+  order: sample
 
-# “Sample info”:
-Cell input number:
-  description: another description
+
+# “Experiment info”:
+CELL_INPUT[TOTAL_ALIVE CELLS]:
+  description: Number of cell (if available) [TOTAL_ALIVE CELLS]
   example:
-Tissue prep method:
-  description: another description
+  order: experiment
+
+TISSUE_PREP_METHOD:
+  description: Brief description to method of tissue preparation
   example:
-NA prep method:
-  description: another description
+  - liver_ex
+    Single cell MB
+    RNA/DNATissueLyzerII
+    Single cell C. Ernst
+    1. Enzymes 2. Trypsin
+    1. Trypsin 2. Enzymes
+    skinbiopsy
+  order: experiment
+
+
+NA_PREP_METHOD:
+  description: Method (probably a kit) used to extract nucleic acid (NA)
   example:
-NA Qubit conc:
-  description: another description
+    - Modified Qiagen DNeasy blood&tissue
+      Qiagen Dneasy blood&tissue
+      Qiagen RNeasy micro
+  order: experiment
+
+QUBIT_NA_CONC[ng/ul]:
+  description: DNA/RNA concentration measured by Qubit [ng/ul]
   example:
+  order: experiment
+NOTES:
+  description: Any additional notes, comments for the submission
+  example:
+  order: experiment
 # “Library prep info”:
 LIB_PREP_KIT:
   description: If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.
   example: [scRNA_10x_v3, WGS_NEBNext_ULTRA_II,Agilent SureSelect Pre-capture,Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420]
+  order: experiment
 LIBRARY_TYPE:
   description: Type of library and how it was generated.
   example:
-  - WES_SureSelectXTHS
-    WGS
-    RNA_NEBNext_Low_Input
-    scRNA_10x_v3
-    RNA_SMARTSeq_v4_Ultra_Low_Input
-    scATAC
-    scRNA_10x_nextgem
+    - WES_SureSelectXTHS
+      WGS
+      RNA_NEBNext_Low_Input
+      scRNA_10x_v3
+      RNA_SMARTSeq_v4_Ultra_Low_Input
+      scATAC
+      scRNA_10x_nextgem
+  order: experiment
 NA_INPUT_QUANTITY [ng]:
-  description: another description
+  description: Mass of input RNA/DNA
   example:
+  regex: "[+-]?([0-9]*[.])?[0-9]+"
+
+  order: experiment
 NA_INPUT_QUANTITY [ul]:
-  description: another description
+  description: Volume of input RNA/DNA
   example:
-PCR cycles first amp:
-  description: another description
+  regex: "[+-]?([0-9]*[.])?[0-9]+"
+  order: experiment
+
+PCR_CYCLES_FIRST_AMP:
+  description: Number of PCR cycles in first amplication
   example:
-PCR cycles second amp:
-  description: another description
+  regex: "[0-9]*"
+  order: experiment
+
+PCR_CYCLES_SECOND_AMP:
+  description: Number of PCR cycles in second amplication
   example:
+  regex: "[0-9]*"
+  order: experiment
+
 LIBRARY_CONC[ng/ul]:
   description: another description
-  example:
-Fragment size:
-  description: another description
-  example:
+  example: 14.40
+  regex: "[+-]?([0-9]*[.])?[0-9]+"
+  order: experiment
+
+AVERAGE_FRAGMENT_SIZE:
+  description: Average fragment length (basepairs=
+  example: 500
+  regex: "[0-9]*"
+  order: experiment
+
 LIBRARY_MOLARITY[nmol]:
   description: another description
+  example: 46.94
+  regex: "[+-]?([0-9]*[.])?[0-9]+"
+  order: experiment
+
+
+BARCODETYPE:
+  description: Description of barcode used
   example:
-Barcode type:
+    - SureSelect 16 Rxn
+      10X Chromium v3
+      NEB 96 oligos
+      SureSelect 96 rxn
+  order: experiment
+
+BARCODE_WELL_I5:
   description: another description
-  example:
-Barcode well:
+  example: A7, N701, SI-GA-A6
+  order: experiment
+
+BARCODE_SEQ_I5:
   description: another description
-  example:
-Barcode sequence (only once):
+  example: TTACCGAC, TATCCTCT
+  regex: "[ATGC]*"
+  order: experiment
+
+BARCODE_WELL_I7:
   description: another description
-  example:
+  example: A7, S503
+  order: experiment
+
+BARCODE_SEQ_I7:
+  description: Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)
+  example: TTACCGAC, GCGAGTAA
+  regex: "[ATGC, ]*"
+  order: experiment
+
 DNA_FRAGMENTATION_METHOD:
-  description: another description
+  description: Method used to fragment DNA
   example:
   - enzymatic
     sonicator
+  order: experiment
 
 
 # “Sequencing info”:
-Sequencer: # TODO isn't that provided by ILSe?
-  description: another description
-  example:
-Multiplex number:
-  description: INITIALS+DATE_OF_SUBMISSION
-  example:
-Number of lanes:
-  description: another description
+SEQUENCER: # TODO isn't that provided by ILSe?
+  description: Free-txt description of sequencing platforms, read-length and run-type (for your information and submission to the sequencing center)
+  example: NextSeq 550 Paired-End 75bp Mid-Output
+  regime: None
+  order: sequencing
+
+MULTIPLEX: # TODO inform ODCF about rename, was "MULTIPLEX"
+  description: Number of samples in Multiplex
+  example: 12
+  regex: "[0-9]*"
+  regime: Odomlab
+  order: sequencing
+
+MULTIPLEX_NAME:
+  description: Your initials followed by the date of submission format(ABYYYYMMDD)
   example: MB20190923
-ILSE No.:
-  description: another description
-  example:
-Submission number:
-  description: another description
-  example:
+  regex: "[A-Z]{2}[0-9]{4}[0-9]{2}[0-9]{2}"
+  regime: Odomlab
+  order: sequencing
+
+LANES_TOTAL:
+  description: Number of lanes sequenced
+  example: 1
+  regex: "[0-9]*"
+  regime: Odomlab
+  order: sequencing
+
+ILSE_NO:
+  description: ILSE number as provided by GPCF/ILSe
+  example: 012345
+  regex: "[0-9]{5,}"
+  order: sequencing
+
 DATE_OF_SUBM:
   description: When was the sample submitted for sequencing? (format YYYY-MM-DD)
   example: 2020-10-31
+  order: sequencing
+
 # “Storage info”:
 EXPER_LOCATION:
   description: another description
   example: [MB_folder, AT1_15_A1, AT1_45_A1]
+  order: sequencing
+
 PLATE:
   description: another description
   example: [T1 plate 1, 20200130]
+  order: sequencing
+
 WELL_COLUMN:
-  description: another description
+  description: Column in the plate
   example: 1
+  regex: "[0-9]{1,2}"
+  order: sequencing
+
 WELL_ROW:
-  description: another description
+  description: Row in the plate
   example: A
+  regex: "[A-Z]"
+  order: sequencing
+
 WELL:
-  description: REQUIRED FOR SMARTSEQ2
+  description: REQUIRED FOR SMARTSEQ2, combination of column and row
   example: 1A
-Well column, row, well ec:
-  description: another description
-  example:
+  regex: "[0-9]{1,2}[A-Z]"
+  order: sequencing
+
 # “Antibody info” (maybe more useful with the ‘library prep’ info if you’re doing ChIP):
 ANTIBODY_TARGET:
-  description: another description
-  example:
+  description: Antibody target protein
+  example: HNF4A, CEBPA
+  order: other
 ANTIBODY:
-  description: another description
+  description: Antibody name, manufacturer etc.
   example:
+  order: other
+
 ANTIBODY_LOT:
-  description: another description
+  description: LOT number of the antibody
   example:
+  order: other
+
 # Lot numbers:
 AMPURE_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
+
 DYNABEADS_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
+
 QUIBIT_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
+
 CLARIOSTAR_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
+
 NA_PREP_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
+
 ENZYM_FRAG_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
+
 LIBRARYPREP_KIT_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
+
 INDEXPRIMER_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
 CAPTURE_PROBES_LOT:
-  description: another description
+  description: LOT number as provided by manufacturer
   example:
+  order: other
