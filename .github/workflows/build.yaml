@@ -9,14 +9,11 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
-    strategy:
-      matrix:
-        python-version: [3.7, 3.8]
     steps:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: anaconda-client-env
+          activate-environment: metadata-submission
           environment-file: environment.yaml
           python-version: 3.8
           auto-activate-base: false
