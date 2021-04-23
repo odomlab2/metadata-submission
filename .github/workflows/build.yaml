@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: |
           export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
-          ./scripts/yaml2emx.py
+          ./scripts/yaml2xlsx.py
       - name: Store template
         uses: actions/upload-artifact@v2
         with:
