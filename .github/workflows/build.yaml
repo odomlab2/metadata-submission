@@ -32,6 +32,7 @@ jobs:
           py.test  # test/test_template.py
       - name: Build
         run: |
+          chmod +x ./scripts/yaml2xlsx.py
           export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
           ./scripts/yaml2xlsx.py
       - name: Store template
