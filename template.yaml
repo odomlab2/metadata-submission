@@ -162,7 +162,6 @@ NA_INPUT_QUANTITY [ng]:
   description: Mass of input RNA/DNA
   example:
   regex: "[+-]?([0-9]*[.])?[0-9]+"
-
   order: experiment
 NA_INPUT_QUANTITY [ul]:
   description: Volume of input RNA/DNA
@@ -238,6 +237,14 @@ DNA_FRAGMENTATION_METHOD:
   - enzymatic
     sonicator
   order: experiment
+  regime: Odomlab
+
+IMAGING_DATASET:
+  description: Imaging dataset for Spatial Transcriptomics
+  example:
+    - DOIMG-00001
+  order: experiment
+  regime: Odomlab
 
 
 # “Sequencing info”:
@@ -317,7 +324,6 @@ ANTIBODY:
   description: Antibody name, manufacturer etc.
   example:
   order: other
-
 ANTIBODY_LOT:
   description: LOT number of the antibody
   example:
