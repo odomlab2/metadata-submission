@@ -65,7 +65,7 @@ if __name__ == "__main__":
     info_sheet = style_df(df)
     data_sheet = style_df(pd.DataFrame(columns=df.columns.tolist()))
 
-    ew = StyleFrame.ExcelWriter('template.xlsx')
+    ew = StyleFrame.ExcelWriter(' templates/sequencing_spreadsheet_template.xlsx')
     data_sheet.to_excel(excel_writer=ew, sheet_name='Data')
     info_sheet.to_excel(excel_writer=ew,
                         sheet_name='Examples & Info',

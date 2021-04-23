@@ -27,3 +27,12 @@ jobs:
         run: |
           export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
           py.test test_template.py
+      - name: Build
+        run: |
+          export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
+          ./scripts/yaml2emx.py
+      - name: Store template
+        uses: actions/upload-artifact@v2
+        with:
+          name: excel-template
+          path: templates/sequencing_spreadsheet_template.xlsx
