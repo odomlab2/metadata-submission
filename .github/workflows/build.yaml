@@ -18,7 +18,7 @@ jobs:
           $CONDA/bin/conda init bash
           source ~/.bashrc
           python -m pip install --upgrade pip
-          pip install flake8 pytest pandas openpyxl rumal.yaml
+          pip install flake8 pytest pandas openpyxl ruamel.yaml
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
