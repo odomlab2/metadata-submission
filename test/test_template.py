@@ -8,14 +8,14 @@ from scripts.yaml2xlsx import load_template_yaml
 class TemplateTests(unittest.TestCase):
 
     def test_loadYAML(self):
-        df = load_template_yaml(yaml_file = "../template.yaml")
+        df = load_template_yaml(yaml_file = "template.yaml")
         self.assertIsInstance(df, pd.DataFrame)
 
     @pytest.mark.xfail# (raises=AssertionError)
     def test_equal_colname_list(self):
         """Do the fieldnames in the YAML match those in the previos spreadsheet. """
         yaml_based_df = load_template_yaml(yaml_file = "../template.yaml")
-        orig_spreadsheet = pd.read_excel("../sequencing_spreadsheet.template.xlsx", sheet_name="Examples")
+        orig_spreadsheet = pd.read_excel("sequencing_spreadsheet.template.xlsx", sheet_name="Examples")
 
         diff = set(orig_spreadsheet.columns).difference(set(yaml_based_df.columns))
         print(diff)
@@ -25,7 +25,7 @@ class TemplateTests(unittest.TestCase):
     def test_example_match_regex(self):
         """Do the examples work with the regular expression?"""
         import re
-        df = load_template_yaml(yaml_file = "../template.yaml")
+        df = load_template_yaml(yaml_file = "template.yaml")
 
         def _get_regex(col):
             if col.name == "info":
