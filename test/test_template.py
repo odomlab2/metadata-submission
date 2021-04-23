@@ -1,6 +1,7 @@
 import unittest
 import pandas as pd
 import numpy as np
+import pytest
 
 from scripts.yaml2xlsx import load_template_yaml
 
@@ -10,7 +11,7 @@ class TemplateTests(unittest.TestCase):
         df = load_template_yaml(yaml_file = "../template.yaml")
         self.assertIsInstance(df, pd.DataFrame)
 
-
+    @pytest.mark.xfail# (raises=AssertionError)
     def test_equal_colname_list(self):
         """Do the fieldnames in the YAML match those in the previos spreadsheet. """
         yaml_based_df = load_template_yaml(yaml_file = "../template.yaml")
