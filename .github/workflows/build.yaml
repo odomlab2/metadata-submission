@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: |
           chmod +x ./scripts/yaml2xlsx.py
-          mkdir -p templates
+          mkdir -p build/{sheets,html}
           export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
           ./scripts/yaml2xlsx.py
       - name: Store template
