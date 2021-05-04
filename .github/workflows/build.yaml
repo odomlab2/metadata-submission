@@ -41,3 +41,8 @@ jobs:
         with:
           name: excel-template
           path: templates/sequencing_spreadsheet_template.xlsx
+      - name: Store template
+        uses: actions/upload-artifact@v2
+        with:
+          name: excel-template
+          path: html/template.html

@@ -6,6 +6,7 @@ import ruamel.yaml as yaml
 from styleframe import StyleFrame, Styler, utils
 import itertools
 
+from scripts.yaml2html import write_html
 
 def load_template_yaml(yaml_file="template.yaml"):
     """Read template YAML and return as Pandas DataFrame"""
@@ -75,6 +76,7 @@ if __name__ == "__main__":
                         #allow_protection=True
                         )
     ew.save()
+    write_html(df, "html/template.html")
 
 
     print("---")
