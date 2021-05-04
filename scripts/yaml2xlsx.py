@@ -76,7 +76,7 @@ if __name__ == "__main__":
                         #allow_protection=True
                         )
     ew.save()
-    write_html(df, "build/html/template.html")
+    write_html(df, "build/html/index.html")
 
 
     print("---")
