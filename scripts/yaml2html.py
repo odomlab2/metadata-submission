@@ -6,6 +6,7 @@ from datetime import date
 CSS_TEXT = '''
 <html>
 <head>
+  <title> Metadata spreadsheet </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,7 +22,7 @@ Date: {date} <br />
 </p>
 
 <p>
-<h2> <a href="../sheets/template.xlsx"> Download Excel template here </a> </h2>
+<h2> <a href="sheets/template.xlsx"> Download Excel template here </a> </h2>
 In case of questions please open a issue at <a href="https://github.com/odomlab2/metadata-submission/issues" >GitHub</a> - Thanks!
 </p>
     {table}
