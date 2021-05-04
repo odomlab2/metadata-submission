@@ -3,8 +3,7 @@ name: metadata-submission
 on: [push]
 
 jobs:
-  test:
-
+  test-and-build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -30,7 +29,6 @@ jobs:
           $CONDA/bin/conda activate base
           export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
           py.test  # test/test_template.py
-  build:
       - name: Build
         run: |
           chmod +x ./scripts/yaml2xlsx.py
