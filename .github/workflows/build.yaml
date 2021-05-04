@@ -40,9 +40,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: excel-template
-          path: templates/sequencing_spreadsheet_template.xlsx
+          path: build/sheets/sequencing_spreadsheet_template.xlsx
       - name: Store template
         uses: actions/upload-artifact@v2
         with:
           name: excel-template
-          path: html/template.html
+          path: build/html/template.html
