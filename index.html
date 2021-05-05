@@ -12,22 +12,24 @@
 <h1> List of Metadata fields </h1>
 
 <p>
-Version: 8dab341 <br />
-Date: 2021-05-04 <br />
+Version: 517f04d <br />
+Date: 2021-05-05 <br />
 </p>
 
 <p>
 <h2> <a href="sheets/sequencing_spreadsheet_template.xlsx"> Download Excel template here </a> </h2>
 In case of questions please open a issue at <a href="https://github.com/odomlab2/metadata-submission/issues" >GitHub</a> - Thanks!
 </p>
+
     <table border="1" class="dataframe table table-striped table-condensed">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>description</th>
       <th>example</th>
-      <th>regime</th>
-      <th>order</th>
+      <th>used_for</th>
+      <th>None</th>
+      <th>category</th>
       <th>regex</th>
     </tr>
   </thead>
@@ -36,8 +38,9 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>info</th>
       <td>description</td>
       <td>example</td>
-      <td>regime</td>
-      <td>order</td>
+      <td>used_for</td>
+      <td>None</td>
+      <td>category</td>
       <td>regex</td>
     </tr>
     <tr>
@@ -47,12 +50,14 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>GUIDE</td>
       <td>sample</td>
       <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>PATIENT_ID</th>
       <td>Individual ID for OTP</td>
       <td>mmus_01234</td>
       <td>GUIDE, Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -61,6 +66,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.</td>
       <td>0001_hgla_w23T14_sk-3</td>
       <td>GPCF, ODCF</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -69,6 +75,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Researchers Working ID for a sample</td>
       <td>None</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -77,6 +84,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.</td>
       <td>Mus musculus</td>
       <td>ILSe</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -85,6 +93,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Identifier for the strain used. Use EFO, if possible</td>
       <td>[CAST/Ej, C57BL/6, [CAST/EjxC57BL/6]F1]</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -93,6 +102,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Genome used for QC at GPCF</td>
       <td>mm10</td>
       <td>ILSe</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -101,6 +111,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>ID for the individual (MOVI Number, Researcher's working ID)</td>
       <td>None</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -109,6 +120,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Sample Type used by OTP, describing samples *across* individual, please follow guidelines</td>
       <td>liver01, liver01-test01</td>
       <td>GUIDE, Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -117,6 +129,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.</td>
       <td>liver, skin, brain</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -125,6 +138,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Genotype according to EFO. Typically wildtype if not GMO.</td>
       <td>wild type</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -133,14 +147,16 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Description of the phenotype</td>
       <td>[healthy, tumor]</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>SEX</th>
-      <td>Yes, please!</td>
+      <td>Biological sex of the sampled individual.</td>
       <td>female, male, unknown</td>
       <td>ILSe, GUIDE, Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -149,6 +165,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Birthday of individual (format YYYY-MM-DD)</td>
       <td>2020-03-31</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -157,6 +174,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Date of death (format YYYY-MM-DD)</td>
       <td>2020-01-04</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -165,6 +183,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>another description</td>
       <td>[neck_fracture CO2_neck_fracture isofloran_neck_fracture]</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
@@ -172,6 +191,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>TREATMENT</th>
       <td>another description</td>
       <td>[acetone 25w_DMBA/TPA 10w_DMBA/TPA DMBA/TPA_or_TPA TPA UV]</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>sample</td>
       <td>NaN</td>
@@ -180,6 +200,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>CELL_INPUT[TOTAL_ALIVE CELLS]</th>
       <td>Number of cell (if available) [TOTAL_ALIVE CELLS]</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -188,6 +209,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>TISSUE_PREP_METHOD</th>
       <td>Brief description to method of tissue preparation</td>
       <td>[liver_ex Single cell MB RNA/DNATissueLyzerII Single cell C. Ernst 1. Enzymes 2. Trypsin 1. Trypsin 2. Enzymes skinbiopsy]</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -196,6 +218,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>NA_PREP_METHOD</th>
       <td>Method (probably a kit) used to extract nucleic acid (NA)</td>
       <td>[Modified Qiagen DNeasy blood&amp;tissue Qiagen Dneasy blood&amp;tissue Qiagen RNeasy micro]</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -204,6 +227,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>QUBIT_NA_CONC[ng/ul]</th>
       <td>DNA/RNA concentration measured by Qubit [ng/ul]</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -212,6 +236,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>NOTES</th>
       <td>Any additional notes, comments for the submission</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -220,6 +245,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>LIB_PREP_KIT</th>
       <td>If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.</td>
       <td>[scRNA_10x_v3, WGS_NEBNext_ULTRA_II, Agilent SureSelect Pre-capture, Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420]</td>
+      <td>Odomlab, GUIDE, OTP</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -228,6 +254,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>LIBRARY_TYPE</th>
       <td>Type of library and how it was generated.</td>
       <td>[WES_SureSelectXTHS WGS RNA_NEBNext_Low_Input scRNA_10x_v3 RNA_SMARTSeq_v4_Ultra_Low_Input scATAC scRNA_10x_nextgem]</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -236,6 +263,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>NA_INPUT_QUANTITY [ng]</th>
       <td>Mass of input RNA/DNA</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[+-]?([0-9]*[.])?[0-9]+</td>
@@ -244,6 +272,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>NA_INPUT_QUANTITY [ul]</th>
       <td>Volume of input RNA/DNA</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[+-]?([0-9]*[.])?[0-9]+</td>
@@ -252,6 +281,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>PCR_CYCLES_FIRST_AMP</th>
       <td>Number of PCR cycles in first amplication</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[0-9]*</td>
@@ -260,6 +290,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>PCR_CYCLES_SECOND_AMP</th>
       <td>Number of PCR cycles in second amplication</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[0-9]*</td>
@@ -268,6 +299,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>LIBRARY_CONC[ng/ul]</th>
       <td>another description</td>
       <td>14.4</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[+-]?([0-9]*[.])?[0-9]+</td>
@@ -276,6 +308,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>AVERAGE_FRAGMENT_SIZE</th>
       <td>Average fragment length (basepairs=</td>
       <td>500</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[0-9]*</td>
@@ -284,6 +317,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>LIBRARY_MOLARITY[nmol]</th>
       <td>another description</td>
       <td>46.94</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[+-]?([0-9]*[.])?[0-9]+</td>
@@ -292,6 +326,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>BARCODETYPE</th>
       <td>Description of barcode used</td>
       <td>[SureSelect 16 Rxn 10X Chromium v3 NEB 96 oligos SureSelect 96 rxn]</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -300,6 +335,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>BARCODE_WELL_I5</th>
       <td>another description</td>
       <td>A7, N701, SI-GA-A6</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -308,6 +344,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>BARCODE_SEQ_I5</th>
       <td>another description</td>
       <td>TTACCGAC, TATCCTCT</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[ATGC]*</td>
@@ -316,6 +353,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>BARCODE_WELL_I7</th>
       <td>another description</td>
       <td>A7, S503</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
@@ -324,6 +362,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>BARCODE_SEQ_I7</th>
       <td>Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)</td>
       <td>TTACCGAC, GCGAGTAA</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>experiment</td>
       <td>[ATGC, ]*</td>
@@ -333,6 +372,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Method used to fragment DNA</td>
       <td>[enzymatic sonicator]</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
     </tr>
@@ -341,6 +381,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Imaging dataset for Spatial Transcriptomics</td>
       <td>[DOIMG-00001]</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>experiment</td>
       <td>NaN</td>
     </tr>
@@ -349,6 +390,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Free-txt description of sequencing platforms, read-length and run-type (for your information and submission to the sequencing center)</td>
       <td>NextSeq 550 Paired-End 75bp Mid-Output</td>
       <td>None</td>
+      <td>NaN</td>
       <td>sequencing</td>
       <td>NaN</td>
     </tr>
@@ -357,6 +399,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Number of samples in Multiplex</td>
       <td>12</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sequencing</td>
       <td>[0-9]*</td>
     </tr>
@@ -365,6 +408,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Your initials followed by the date of submission format(ABYYYYMMDD)</td>
       <td>MB20190923</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sequencing</td>
       <td>[A-Z]{2}[0-9]{4}[0-9]{2}[0-9]{2}</td>
     </tr>
@@ -373,6 +417,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>Number of lanes sequenced</td>
       <td>1</td>
       <td>Odomlab</td>
+      <td>NaN</td>
       <td>sequencing</td>
       <td>[0-9]*</td>
     </tr>
@@ -380,6 +425,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>ILSE_NO</th>
       <td>ILSE number as provided by GPCF/ILSe</td>
       <td>12345</td>
+      <td>GUIDE, Odomlab</td>
       <td>NaN</td>
       <td>sequencing</td>
       <td>[0-9]{5,}</td>
@@ -388,6 +434,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>DATE_OF_SUBM</th>
       <td>When was the sample submitted for sequencing? (format YYYY-MM-DD)</td>
       <td>2020-10-31</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>sequencing</td>
       <td>NaN</td>
@@ -396,6 +443,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>EXPER_LOCATION</th>
       <td>another description</td>
       <td>[MB_folder, AT1_15_A1, AT1_45_A1]</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>sequencing</td>
       <td>NaN</td>
@@ -404,6 +452,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>PLATE</th>
       <td>another description</td>
       <td>[T1 plate 1, 20200130]</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>sequencing</td>
       <td>NaN</td>
@@ -412,6 +461,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>WELL_COLUMN</th>
       <td>Column in the plate</td>
       <td>1</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>sequencing</td>
       <td>[0-9]{1,2}</td>
@@ -420,6 +470,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>WELL_ROW</th>
       <td>Row in the plate</td>
       <td>A</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>sequencing</td>
       <td>[A-Z]</td>
@@ -428,6 +479,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>WELL</th>
       <td>REQUIRED FOR SMARTSEQ2, combination of column and row</td>
       <td>1A</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>sequencing</td>
       <td>[0-9]{1,2}[A-Z]</td>
@@ -436,6 +488,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>ANTIBODY_TARGET</th>
       <td>Antibody target protein</td>
       <td>HNF4A, CEBPA</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -444,6 +497,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>ANTIBODY</th>
       <td>Antibody name, manufacturer etc.</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -452,6 +506,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>ANTIBODY_LOT</th>
       <td>LOT number of the antibody</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -460,6 +515,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>AMPURE_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -469,6 +525,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
     </tr>
@@ -476,6 +533,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>QUIBIT_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -484,6 +542,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>CLARIOSTAR_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -492,6 +551,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>NA_PREP_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -500,6 +560,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>ENZYM_FRAG_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -508,6 +569,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>LIBRARYPREP_KIT_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -516,6 +578,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>INDEXPRIMER_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
@@ -524,6 +587,7 @@ In case of questions please open a issue at <a href="https://github.com/odomlab2
       <th>CAPTURE_PROBES_LOT</th>
       <td>LOT number as provided by manufacturer</td>
       <td>None</td>
+      <td>Odomlab</td>
       <td>NaN</td>
       <td>other</td>
       <td>NaN</td>
