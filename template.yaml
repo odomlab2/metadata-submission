@@ -2,89 +2,89 @@
 PROJECT:
   description: ODCF Project Name as registered in OTP
   example: OE0538_DO0001
-  regime: GUIDE
-  order: sample
+  used_for: GUIDE
+  : sample
 PATIENT_ID:
   description: Individual ID for OTP
   example: mmus_01234
-  regime: GUIDE, Odomlab
-  order: sample
+  used_for: GUIDE, Odomlab
+  category: sample
 
 
 SAMPLE_NAME_GPCF:
   description: Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.
   example: 0001_hgla_w23T14_sk-3
-  regime: GPCF, ODCF
-  order: sample
+  used_for: GPCF, ODCF
+  category: sample
 WORKING_ID:
   description: Researchers Working ID for a sample
   example: None
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 
 SPECIES:
   description: Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.
   example: Mus musculus
-  regime: ILSe
-  order: sample
+  used_for: ILSe
+  category: sample
 
 STRAIN:
   description: Identifier for the strain used. Use EFO, if possible
   example: ["CAST/Ej", "C57BL/6", "[CAST/EjxC57BL/6]F1"]
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 GENOME:
   description: Genome used for QC at GPCF
   example: mm10
-  regime: ILSe
-  order: sample
+  used_for: ILSe
+  category: sample
 INDIVIDUAL:
   description: ID for the individual (MOVI Number, Researcher's working ID)
   example: None
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 
 SAMPLE_TYPE:
   description: Sample Type used by OTP, describing samples *across* individual, please follow guidelines
   example: liver01, liver01-test01
-  regime: GUIDE, Odomlab
-  order: sample
+  used_for: GUIDE, Odomlab
+  category: sample
 
 TISSUE:
   description: Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.
   example: liver, skin, brain
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 
 GENOTYPE:
   description: Genotype according to EFO. Typically wildtype if not GMO.
   example: "wild type"
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 
 # Phenotype data:
 PHENOTYPE:
   description: Description of the phenotype
   example: ["healthy", "tumor"]
-  order: sample
+  category: sample
 
 SEX:
-  description: Yes, please!
+  description: Biological sex of the sampled individual.
   example: female, male, unknown
-  regime: ILSe, GUIDE, Odomlab
-  order: sample
+  used_for: ILSe, GUIDE, Odomlab
+  category: sample
 
 DATE_OF_BIRTH:
   description: Birthday of individual (format YYYY-MM-DD)
   example: 2020-03-31
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 
 DATE_OF_DEATH:
   description: Date of death (format YYYY-MM-DD)
   example: 2020-01-04
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 
 WAY_OF_DEATH:
   description: another description
@@ -92,8 +92,8 @@ WAY_OF_DEATH:
   - neck_fracture
     CO2_neck_fracture
     isofloran_neck_fracture
-  regime: Odomlab
-  order: sample
+  used_for: Odomlab
+  category: sample
 
 TREATMENT:
   description: another description
@@ -104,14 +104,16 @@ TREATMENT:
     DMBA/TPA_or_TPA
     TPA
     UV
-  order: sample
+  category: sample
+  used_for: Odomlab
 
 
 # “Experiment info”:
 CELL_INPUT[TOTAL_ALIVE CELLS]:
   description: Number of cell (if available) [TOTAL_ALIVE CELLS]
   example:
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 TISSUE_PREP_METHOD:
   description: Brief description to method of tissue preparation
@@ -123,7 +125,8 @@ TISSUE_PREP_METHOD:
     1. Enzymes 2. Trypsin
     1. Trypsin 2. Enzymes
     skinbiopsy
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 
 NA_PREP_METHOD:
@@ -132,21 +135,25 @@ NA_PREP_METHOD:
     - Modified Qiagen DNeasy blood&tissue
       Qiagen Dneasy blood&tissue
       Qiagen RNeasy micro
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 QUBIT_NA_CONC[ng/ul]:
   description: DNA/RNA concentration measured by Qubit [ng/ul]
   example:
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 NOTES:
   description: Any additional notes, comments for the submission
   example:
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 # “Library prep info”:
 LIB_PREP_KIT:
   description: If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.
   example: [scRNA_10x_v3, WGS_NEBNext_ULTRA_II,Agilent SureSelect Pre-capture,Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420]
-  order: experiment
+  category: experiment
+  used_for: Odomlab, GUIDE, OTP
 LIBRARY_TYPE:
   description: Type of library and how it was generated.
   example:
@@ -157,47 +164,55 @@ LIBRARY_TYPE:
       RNA_SMARTSeq_v4_Ultra_Low_Input
       scATAC
       scRNA_10x_nextgem
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 NA_INPUT_QUANTITY [ng]:
   description: Mass of input RNA/DNA
   example:
   regex: "[+-]?([0-9]*[.])?[0-9]+"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 NA_INPUT_QUANTITY [ul]:
   description: Volume of input RNA/DNA
   example:
   regex: "[+-]?([0-9]*[.])?[0-9]+"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 PCR_CYCLES_FIRST_AMP:
   description: Number of PCR cycles in first amplication
   example:
   regex: "[0-9]*"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 PCR_CYCLES_SECOND_AMP:
   description: Number of PCR cycles in second amplication
   example:
   regex: "[0-9]*"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 LIBRARY_CONC[ng/ul]:
   description: another description
   example: 14.40
   regex: "[+-]?([0-9]*[.])?[0-9]+"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 AVERAGE_FRAGMENT_SIZE:
   description: Average fragment length (basepairs=
   example: 500
   regex: "[0-9]*"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 LIBRARY_MOLARITY[nmol]:
   description: another description
   example: 46.94
   regex: "[+-]?([0-9]*[.])?[0-9]+"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 
 BARCODETYPE:
@@ -207,169 +222,187 @@ BARCODETYPE:
       10X Chromium v3
       NEB 96 oligos
       SureSelect 96 rxn
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 BARCODE_WELL_I5:
   description: another description
   example: A7, N701, SI-GA-A6
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 BARCODE_SEQ_I5:
   description: another description
   example: TTACCGAC, TATCCTCT
   regex: "[ATGC]*"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 BARCODE_WELL_I7:
   description: another description
   example: A7, S503
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 BARCODE_SEQ_I7:
   description: Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)
   example: TTACCGAC, GCGAGTAA
   regex: "[ATGC, ]*"
-  order: experiment
+  category: experiment
+  used_for: Odomlab
 
 DNA_FRAGMENTATION_METHOD:
   description: Method used to fragment DNA
   example:
   - enzymatic
     sonicator
-  order: experiment
-  regime: Odomlab
+  category: experiment
+  used_for: Odomlab
 
 IMAGING_DATASET:
   description: Imaging dataset for Spatial Transcriptomics
   example:
     - DOIMG-00001
-  order: experiment
-  regime: Odomlab
+  category: experiment
+  used_for: Odomlab
 
 
 # “Sequencing info”:
 SEQUENCER: # TODO isn't that provided by ILSe?
   description: Free-txt description of sequencing platforms, read-length and run-type (for your information and submission to the sequencing center)
   example: NextSeq 550 Paired-End 75bp Mid-Output
-  regime: None
-  order: sequencing
+  used_for: None
+  category: sequencing
 
 MULTIPLEX: # TODO inform ODCF about rename, was "MULTIPLEX"
   description: Number of samples in Multiplex
   example: 12
   regex: "[0-9]*"
-  regime: Odomlab
-  order: sequencing
+  used_for: Odomlab
+  category: sequencing
 
 MULTIPLEX_NAME:
   description: Your initials followed by the date of submission format(ABYYYYMMDD)
   example: MB20190923
   regex: "[A-Z]{2}[0-9]{4}[0-9]{2}[0-9]{2}"
-  regime: Odomlab
-  order: sequencing
+  used_for: Odomlab
+  category: sequencing
 
 LANES_TOTAL:
   description: Number of lanes sequenced
   example: 1
   regex: "[0-9]*"
-  regime: Odomlab
-  order: sequencing
+  used_for: Odomlab
+  category: sequencing
 
 ILSE_NO:
   description: ILSE number as provided by GPCF/ILSe
   example: 012345
   regex: "[0-9]{5,}"
-  order: sequencing
-
+  category: sequencing
+  used_for: GUIDE, Odomlab
 DATE_OF_SUBM:
   description: When was the sample submitted for sequencing? (format YYYY-MM-DD)
   example: 2020-10-31
-  order: sequencing
-
+  category: sequencing
+  used_for: Odomlab
 # “Storage info”:
 EXPER_LOCATION:
   description: another description
   example: [MB_folder, AT1_15_A1, AT1_45_A1]
-  order: sequencing
-
+  category: sequencing
+  used_for: Odomlab
 PLATE:
   description: another description
   example: [T1 plate 1, 20200130]
-  order: sequencing
-
+  category: sequencing
+  used_for: Odomlab
 WELL_COLUMN:
   description: Column in the plate
   example: 1
   regex: "[0-9]{1,2}"
-  order: sequencing
-
+  category: sequencing
+  used_for: Odomlab
 WELL_ROW:
   description: Row in the plate
   example: A
   regex: "[A-Z]"
-  order: sequencing
+  category: sequencing
+  used_for: Odomlab
 
 WELL:
   description: REQUIRED FOR SMARTSEQ2, combination of column and row
   example: 1A
   regex: "[0-9]{1,2}[A-Z]"
-  order: sequencing
+  category: sequencing
+  used_for: Odomlab
 
 # “Antibody info” (maybe more useful with the ‘library prep’ info if you’re doing ChIP):
 ANTIBODY_TARGET:
   description: Antibody target protein
   example: HNF4A, CEBPA
-  order: other
+  category: other
+  used_for: Odomlab
 ANTIBODY:
   description: Antibody name, manufacturer etc.
   example:
-  order: other
+  category: other
+  used_for: Odomlab
 ANTIBODY_LOT:
   description: LOT number of the antibody
   example:
-  order: other
+  category: other
+  used_for: Odomlab
 
 # Lot numbers:
 AMPURE_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  category: other
+  used_for: Odomlab
 
 DYNABEADS_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  category: other
 
 QUIBIT_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  category: other
+  used_for: Odomlab
 
 CLARIOSTAR_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  category: other
+  used_for: Odomlab
 
 NA_PREP_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  category: other
+  used_for: Odomlab
 
 ENZYM_FRAG_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  category: other
+  used_for: Odomlab
 
 LIBRARYPREP_KIT_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  used_for: Odomlab
+  category: other
 
 INDEXPRIMER_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  used_for: Odomlab
+  category: other
 CAPTURE_PROBES_LOT:
   description: LOT number as provided by manufacturer
   example:
-  order: other
+  used_for: Odomlab
+  category: other

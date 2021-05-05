@@ -25,6 +25,7 @@ Date: {date} <br />
 <h2> <a href="sheets/sequencing_spreadsheet_template.xlsx"> Download Excel template here </a> </h2>
 In case of questions please open a issue at <a href="https://github.com/odomlab2/metadata-submission/issues" >GitHub</a> - Thanks!
 </p>
+
     {table}
 </body>
 </html>
