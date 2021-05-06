@@ -37,9 +37,17 @@ def get_version():
     version_label = subprocess.check_output(["git", "describe", "--always", "--tags"]).strip().decode("utf-8")
     return version_label
 
+def list_to_string(x):
+
+    if type(x) == list:
+        return ", ".join([str(elem) for elem in x])
+    else:
+        return x
+
 def write_html(df, htmlfile="template.html"):
     # OUTPUT AN HTML FILE
     df = df.transpose()
+    df.example = df.example.apply(list_to_string)
     with open(htmlfile, 'w') as f:
         f.write(CSS_TEXT.format(table=df.to_html(classes="table table-striped table-condensed"),
                                 date=DATE,
