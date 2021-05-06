@@ -3,7 +3,7 @@ PROJECT:
   description: ODCF Project Name as registered in OTP
   example: OE0538_DO0001
   used_for: GUIDE
-  : sample
+  category: sample
 PATIENT_ID:
   description: Individual ID for OTP
   example: mmus_01234
