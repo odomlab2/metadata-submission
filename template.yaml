@@ -250,11 +250,11 @@ BARCODE_WELL_I5:
   used_for: Odomlab
 
 BARCODE_SEQ_I5:
-  description: another description
+  description:  Sequence of the I5 barcode
   example: TTACCGAC, TATCCTCT
   regex: "[ATGC]*"
   category: experiment
-  used_for: Odomlab
+  used_for: Odomlab, ILSe
 
 BARCODE_WELL_I7:
   description: Well position of the barcode
@@ -267,7 +267,7 @@ BARCODE_SEQ_I7:
   example: TTACCGAC, GCGAGTAA
   regex: "[ATGC, ]*"
   category: experiment
-  used_for: Odomlab
+  used_for: Odomlab, ILSe
 
 DNA_FRAGMENTATION_METHOD:
   description: Method used to fragment DNA
