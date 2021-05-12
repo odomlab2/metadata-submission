@@ -22,7 +22,13 @@ Date: {date} <br />
 </p>
 
 <p>
-<h2> <a href="sheets/sequencing_spreadsheet_template.xlsx"> Download Excel template here </a> </h2>
+<h2> Download spreadsheets</h2>
+
+<a href="sheets/sequencing_spreadsheet_template.by_provider.xlsx"> Sorted by Provider (ILSe, etc) - classical ordering </a> 
+<a href="sheets/sequencing_spreadsheet_template.by_category.xlsx"> Sorted by category (Sample, Experiment, Sequencing Info, LOTs) - classical ordering </a> 
+
+<b> Note that the table below is ordered by category </b> 
+</ br>
 In case of questions please open a issue at <a href="https://github.com/odomlab2/metadata-submission/issues" >GitHub</a> - Thanks!
 </p>
 
