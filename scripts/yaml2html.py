@@ -1,9 +1,11 @@
 
 import subprocess
+from shutil import copyfile
+from os.path import dirname, join, basename
 from datetime import date
 
 
-CSS_TEXT = '''
+CSS_TEXT_HEADER = '''
 <html>
 <head>
   <title> Metadata spreadsheet </title>
@@ -23,16 +25,45 @@ Date: {date} <br />
 
 <p>
 <h2> Download spreadsheets</h2>
+<ul>
+<li> <a href="sheets/sequencing_spreadsheet_template.by_category.xlsx"> [new] Sorted by category (Sample, Experiment, Sequencing Info, LOTs) </a> </li> 
+<li> <a href="sheets/sequencing_spreadsheet_template.by_provider.xlsx"> ["classic"] Sorted by Provider (ILSe, etc) </a> </li> 
+</ul>
 
-<a href="sheets/sequencing_spreadsheet_template.by_provider.xlsx"> Sorted by Provider (ILSe, etc) - classical ordering </a> 
-<a href="sheets/sequencing_spreadsheet_template.by_category.xlsx"> Sorted by category (Sample, Experiment, Sequencing Info, LOTs) - classical ordering </a> 
-
-<b> Note that the table below is ordered by category </b> 
-</ br>
+</p>
+<p>
 In case of questions please open a issue at <a href="https://github.com/odomlab2/metadata-submission/issues" >GitHub</a> - Thanks!
 </p>
+<h2> Description and examples </h2> 
+<p>
+Click on the buttons to display the fieldnames for the schemas.
+</p>
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'by_category')"  id="defaultOpen">By Category</button>
+  <button class="tablinks" onclick="openTab(event, 'by_provider')">By Provider</button>
 
-    {table}
+</div>
+'''
+
+CSS_TEXT_FOOTER='''
+<script>
+function openTab(evt, TabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(TabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
 </body>
 </html>
 '''
@@ -50,11 +81,24 @@ def list_to_string(x):
     else:
         return x
 
-def write_html(df, htmlfile="template.html"):
+def write_html(htmlfile="template.html", css_file="scripts/df_style.css", **multiple_df):
     # OUTPUT AN HTML FILE
-    df = df.transpose()
-    df.example = df.example.apply(list_to_string)
+    copyfile(css_file, join(dirname(htmlfile), basename(css_file)))
+
+    def _write_table(df_label, df):
+        html_tab = '''<!-- Tab content -->
+                        <div id="{df_label}" class="tabcontent">
+                        <h3>{df_label}</h3>
+                        {table}
+                        </div>'''.format(df_label=df_label,
+                                         table=df.to_html(classes="table table-striped table-condensed"))
+        return html_tab
     with open(htmlfile, 'w') as f:
-        f.write(CSS_TEXT.format(table=df.to_html(classes="table table-striped table-condensed"),
-                                date=DATE,
-                                commit=get_version()))
+        f.write(CSS_TEXT_HEADER.format(date=DATE,
+                                       commit=get_version()))
+        for df_label, df in multiple_df.items():
+            df = df.transpose()
+            df.example = df.example.apply(list_to_string)
+            f.write(_write_table(df_label, df))
+
+        f.write(CSS_TEXT_FOOTER)

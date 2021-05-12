@@ -32,6 +32,7 @@ def columns_order_old(df):
      'BARCODE_I5',
      'MULTIPLEX_NAME',
      'PHENOTYPE',
+     'GENOTYPE',
      'LIBRARY_TYPE',
      'EXPER_LOCATION',
      'PLATE',
@@ -43,6 +44,7 @@ def columns_order_old(df):
      'INDIVIDUAL',
      'TREATMENT',
      'SEX',
+     'TISSUE',
      'DATE_OF_BIRTH',
      'DATE_OF_DEATH',
      'WAY_OF_DEATH',
@@ -73,6 +75,7 @@ def columns_order_old(df):
      'ANTIBODY_TARGET',
      'ANTIBODY',
      'ANTIBODY_LOT',
+     'IMAGING_DATASET',
      'NOTES',
      'AMPURE_LOT',
      'DYNABEADS_LOT',
@@ -157,13 +160,14 @@ if __name__ == "__main__":
     df = load_template_yaml()
 
     column_order_styles = {
-        "by_category": columns_order_old(df),
-        "by_provider": df  # "classic" order, given by application for ILSe, GUIDE and other tables.
+        "by_category": df,
+        "by_provider": columns_order_old(df)  # "classic" order, given by application for ILSe, GUIDE and other tables.
     }
     for column_order_label, df_ordered in column_order_styles.items():
         ew = save_styled_xlsx(df_ordered, out_fname=f'build/sheets/sequencing_spreadsheet_template.{column_order_label}.xlsx')
 
-    write_html(df, "build/index.html")
+    column_order_styles["by_category"] = column_order_styles["by_category"].drop("info", axis=1)  # remove info column for html
+    write_html("build/index.html", **column_order_styles)
 
 
     print("---")
