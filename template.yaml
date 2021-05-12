@@ -11,8 +11,6 @@ PATIENT_ID:
   used_for: GUIDE, Odomlab
   category: sample
 
-
-
 SAMPLE_NAME_GPCF:
   description: Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.
   example: 0001_hgla_w23T14_sk-3
@@ -113,6 +111,19 @@ TREATMENT:
   category: sample
   used_for: Odomlab
 
+INDIVIDUAL_REF_ID:
+  description: ID/Label of the individual as referenced to in external database
+  example:
+    - 12345
+  used_for: Odomlab
+  category: sample
+
+INDIVIDUAL_REF_DB:
+  description: Label of the external mouse database e.g. MoVi / CRUK-CI
+  example:
+    - MoVi, CRUK-CI
+  used_for: Odomlab
+  category: sample
 
 # “Experiment info”:
 CELL_INPUT[TOTAL_ALIVE CELLS]:
@@ -133,7 +144,6 @@ TISSUE_PREP_METHOD:
     skinbiopsy
   category: experiment
   used_for: Odomlab
-
 
 NA_PREP_METHOD:
   description: Method (probably a kit) used to extract nucleic acid (NA)
@@ -265,7 +275,7 @@ DNA_FRAGMENTATION_METHOD:
   category: experiment
   used_for: Odomlab
 
-IMAGING_DATASET:
+IMAGING_DATASET_ID:
   description: Imaging dataset for Spatial Transcriptomics
   example:
     - DOIMG-00001

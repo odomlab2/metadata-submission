@@ -4,6 +4,22 @@ This repository provides a version-controlled template for metadata tracking and
 
 ## Changelog
 
+### 2021-05-12 - Version 2021-05-1
+
+#### Changes
+
+  - New fields:
+     - `GENOTYPE` - needed for ArrayExpress /ENA submission, typically this is *wild type*, if not working with GMO
+     - `TISSUE` - **important** if your `SAMPLE_TYPE` is not indicating the tissue, fill this field
+     - `IMAGING_DATASET_ID` - ID/Label to reference imaging dataset e.g. for Spatial Transcriptomics
+  - Removed redundant fields:
+     - `BARCODE_I7 `
+     - `BARCODE_I5`
+     - use `BARCODE_I5_SEQ` and `BARCODE_I7_SEQ` instead
+  - Please note that **CAST/Ej is not a species**. For `SPECIES` enter *Mus musculus* and specify the `STRAIN` **CAST/Ej**
+  - Website to get info and spreadsheets: https://odomlab2.github.io/metadata-submission/
+  - Columns may be sorted according to category, rather than by point-of-use 
+
 ### 2020-10-27
 
 #### Major Changes

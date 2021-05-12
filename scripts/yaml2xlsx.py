@@ -75,7 +75,7 @@ def columns_order_old(df):
      'ANTIBODY_TARGET',
      'ANTIBODY',
      'ANTIBODY_LOT',
-     'IMAGING_DATASET',
+     'IMAGING_DATASET_ID',
      'NOTES',
      'AMPURE_LOT',
      'DYNABEADS_LOT',
