@@ -4,7 +4,7 @@ This repository provides a version-controlled template for metadata tracking and
 
 ## Changelog
 
-### 2021-05-12 - Version 2021-05-1
+### 2021-05-12 - Version 2021-05.1
 
 #### Changes
 
@@ -19,6 +19,17 @@ This repository provides a version-controlled template for metadata tracking and
   - Please note that **CAST/Ej is not a species**. For `SPECIES` enter *Mus musculus* and specify the `STRAIN` **CAST/Ej**
   - Website to get info and spreadsheets: https://odomlab2.github.io/metadata-submission/
   - Columns may be sorted according to category, rather than by point-of-use 
+
+
+### 2020-11-05
+
+Added fields to Chip-Seq: 
+
+ - ANTIBODY
+ - ANTIBODY_LOT_NUMBERwq
+ - ANTIBODY_TARGET
+  
+
 
 ### 2020-10-27
 
