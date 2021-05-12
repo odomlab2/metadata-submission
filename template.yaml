@@ -81,17 +81,19 @@ SEX:
 DATE_OF_BIRTH:
   description: Birthday of individual (format YYYY-MM-DD)
   example: 2020-03-31
+  regex: "[0-9]{4}-[0-9]{2}-[0-9]{2}-"
   used_for: Odomlab
   category: sample
 
 DATE_OF_DEATH:
   description: Date of death (format YYYY-MM-DD)
   example: 2020-01-04
+  regex: "[0-9]{4}-[0-9]{2}-[0-9]{2}-"
   used_for: Odomlab
   category: sample
 
 WAY_OF_DEATH:
-  description: another description
+  description: How was the mouse/animal killed?
   example:
   - neck_fracture
     CO2_neck_fracture
@@ -100,7 +102,7 @@ WAY_OF_DEATH:
   category: sample
 
 TREATMENT:
-  description: another description
+  description: Any treatment / pertubation applied to the individual/ cell-line.
   example:
   - acetone
     25w_DMBA/TPA
@@ -210,21 +212,21 @@ PCR_CYCLES_SECOND_AMP:
   used_for: Odomlab
 
 LIBRARY_CONC[ng/ul]:
-  description: another description
+  description: Nucleic acid concentration
   example: 14.40
   regex: "[+-]?([0-9]*[.])?[0-9]+"
   category: experiment
   used_for: Odomlab
 
 AVERAGE_FRAGMENT_SIZE:
-  description: Average fragment length (basepairs=
+  description: Average fragment length (basepairs)
   example: 500
   regex: "[0-9]*"
   category: experiment
   used_for: Odomlab
 
 LIBRARY_MOLARITY[nmol]:
-  description: another description
+  description: Library molarity
   example: 46.94
   regex: "[+-]?([0-9]*[.])?[0-9]+"
   category: experiment
@@ -242,7 +244,7 @@ BARCODETYPE:
   used_for: Odomlab
 
 BARCODE_WELL_I5:
-  description: another description
+  description: Well position of the barcode
   example: A7, N701, SI-GA-A6
   category: experiment
   used_for: Odomlab
@@ -255,7 +257,7 @@ BARCODE_SEQ_I5:
   used_for: Odomlab
 
 BARCODE_WELL_I7:
-  description: another description
+  description: Well position of the barcode
   example: A7, S503
   category: experiment
   used_for: Odomlab
@@ -290,7 +292,7 @@ SEQUENCER: # TODO isn't that provided by ILSe?
   used_for: None
   category: sequencing
 
-MULTIPLEX: # TODO inform ODCF about rename, was "MULTIPLEX"
+MULTIPLEX:
   description: Number of samples in Multiplex
   example: 12
   regex: "[0-9]*"
@@ -317,19 +319,22 @@ ILSE_NO:
   regex: "[0-9]{5,}"
   category: sequencing
   used_for: GUIDE, Odomlab
+
 DATE_OF_SUBM:
   description: When was the sample submitted for sequencing? (format YYYY-MM-DD)
   example: 2020-10-31
   category: sequencing
+  regex: "[0-9]{4}-[0-9]{2}-[0-9]{2}-"
+
   used_for: Odomlab
 # “Storage info”:
 EXPER_LOCATION:
-  description: another description
+  description: Location of the library/experiement description
   example: [MB_folder, AT1_15_A1, AT1_45_A1]
   category: sequencing
   used_for: Odomlab
 PLATE:
-  description: another description
+  description: Plate label used
   example: [T1 plate 1, 20200130]
   category: sequencing
   used_for: Odomlab
