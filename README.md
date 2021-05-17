@@ -15,7 +15,7 @@ This repository provides a version-controlled template for metadata tracking and
   - Removed redundant fields:
      - `BARCODE_I7 `
      - `BARCODE_I5`
-     - use `BARCODE_I5_SEQ` and `BARCODE_I7_SEQ` instead
+     - use `BARCODE_I5_SEQ` and `BARCODE_I7_SEQ` instead **this is required for ILSe**
   - Please note that **CAST/Ej is not a species**. For `SPECIES` enter *Mus musculus* and specify the `STRAIN` **CAST/Ej**
   - Website to get info and spreadsheets: https://odomlab2.github.io/metadata-submission/
   - Columns may be sorted according to category, rather than by point-of-use 

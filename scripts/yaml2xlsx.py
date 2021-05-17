@@ -28,8 +28,6 @@ def columns_order_old(df):
      'SAMPLE_NAME_GPCF',
      'SPECIES',
      'SAMPLE_TYPE',
-     'BARCODE_I7',
-     'BARCODE_I5',
      'MULTIPLEX_NAME',
      'PHENOTYPE',
      'GENOTYPE',
