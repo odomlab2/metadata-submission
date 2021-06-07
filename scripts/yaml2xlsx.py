@@ -22,80 +22,20 @@ def load_template_yaml(yaml_file="template.yaml"):
     print(df.head())
     return df
 
-def columns_order_old(df):
-    colnames = ['PROJECT',
-     'PATIENT_ID',
-     'SAMPLE_NAME_GPCF',
-     'SPECIES',
-     'SAMPLE_TYPE',
-     'MULTIPLEX_NAME',
-     'PHENOTYPE',
-     'GENOTYPE',
-     'LIBRARY_TYPE',
-     'EXPER_LOCATION',
-     'PLATE',
-     'WELL_COLUMN',
-     'WELL_ROW',
-     'WELL',
-     'WORKING_ID',
-     'STRAIN',
-     'INDIVIDUAL',
-     'TREATMENT',
-     'SEX',
-     'TISSUE',
-     'DATE_OF_BIRTH',
-     'DATE_OF_DEATH',
-     'WAY_OF_DEATH',
-     'GENOME',
-     'TISSUE_PREP_METHOD',
-     'NA_PREP_METHOD',
-     'QUBIT_NA_CONC[ng/ul]',
-     'CELL_INPUT[TOTAL_ALIVE CELLS]',
-     'LIB_PREP_KIT',
-     'NA_INPUT_QUANTITY [ng]',
-     'NA_INPUT_QUANTITY [ul]',
-     'BARCODE_WELL_I7',
-     'BARCODE_SEQ_I7',
-     'BARCODE_WELL_I5',
-     'BARCODE_SEQ_I5',
-     'BARCODETYPE',
-     'PCR_CYCLES_FIRST_AMP',
-     'PCR_CYCLES_SECOND_AMP',
-     'LIBRARY_CONC[ng/ul]',
-     'LIBRARY_MOLARITY[nmol]',
-     'DNA_FRAGMENTATION_METHOD',
-     'AVERAGE_FRAGMENT_SIZE',
-     'ILSE_NO',
-     'DATE_OF_SUBM',
-     'SEQUENCER',
-     'MULTIPLEX',
-     'LANES_TOTAL',
-     'ANTIBODY_TARGET',
-     'ANTIBODY',
-     'ANTIBODY_LOT',
-     'IMAGING_DATASET_ID',
-     'NOTES',
-     'AMPURE_LOT',
-     'DYNABEADS_LOT',
-     'QUIBIT_LOT',
-     'CLARIOSTAR_LOT',
-     'NA_PREP_LOT',
-     'ENZYM_FRAG_LOT',
-     'LIBRARYPREP_KIT_LOT',
-     'INDEXPRIMER_LOT',
-     'CAPTURE_PROBES_LOT',
-     'INDIVIDUAL_REF_ID',
-     'INDIVIDUAL_REF_DB']
+def order_df(df):
+    def _get_order(df):
+        t = df.transpose()
+        t.used_for = t.used_for.apply(lambda x: x.split(","))
+        t2 = t.explode("used_for")
+        ilse = t2[t2["used_for"] == "ILSe"].index.to_list()
+        guide = t2[t2["used_for"] == "GUIDE"].index.to_list()
+        odomlab = t2[t2["used_for"] == "Odomlab"].index.to_list()
+        odomlab_no_duplicates = list(set(odomlab) - set(ilse) - set(guide))
+        return ilse + guide + odomlab_no_duplicates
 
-    fields_removed = set(sorted(colnames)) - set(sorted(df.columns.tolist()))
-    fields_added = set(sorted(df.columns.tolist())) - set(sorted(colnames))
-
-    if fields_removed:
-        print("The following fields were removed/are missing: \n - " + "\n - ".join(fields_removed))
-    if fields_added:
-        print("The following fields were added \n - " + "\n - ".join(fields_added))
-
-    df = df.reindex(columns = colnames)
+    ordered_columns = _get_order(df)
+    print(ordered_columns)
+    df = df[ordered_columns]
     return df
 
 def style_df(df):
@@ -137,7 +77,7 @@ def style_df(df):
 
 def save_styled_xlsx(df, out_fname = 'build/sheets/sequencing_spreadsheet_template.xlsx'):
     info_sheet = style_df(df)
-    data_sheet = style_df(pd.DataFrame(columns=df.columns.tolist()))
+    data_sheet = style_df(pd.DataFrame(columns=df.columns.tolist()).drop("info", axis=1, errors="ignore"))
 
     ew = StyleFrame.ExcelWriter(out_fname)
     data_sheet.to_excel(excel_writer=ew, sheet_name='Data')
@@ -157,9 +97,10 @@ if __name__ == "__main__":
 
     df = load_template_yaml()
 
+
     column_order_styles = {
         "by_category": df,
-        "by_provider": columns_order_old(df)  # "classic" order, given by application for ILSe, GUIDE and other tables.
+        "by_provider": order_df(df)  # "classic" order, given by application for ILSe, GUIDE and other tables.
     }
     for column_order_label, df_ordered in column_order_styles.items():
         ew = save_styled_xlsx(df_ordered, out_fname=f'build/sheets/sequencing_spreadsheet_template.{column_order_label}.xlsx')
