@@ -246,9 +246,9 @@ ANTIBODY:
   example:
   category: other
   used_for: Odomlab
-ANTIBODY_LOT:
-  description: LOT number of the antibody
-  example:
-  category: other
-  used_for: Odomlab
+#ANTIBODY_LOT:
+#  description: LOT number of the antibody
+#  example:
+#  category: other
+#  used_for: Odomlab
 
