@@ -12,8 +12,8 @@
 <h1> List of Metadata fields </h1>
 
 <p>
-Version: 079109c <br />
-Date: 2021-05-17 <br />
+Version: e6df75e <br />
+Date: 2021-06-07 <br />
 </p>
 
 <p>
@@ -44,6 +44,7 @@ Click on the buttons to display the fieldnames for the schemas.
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Field Name</th>
       <th>description</th>
       <th>example</th>
       <th>used_for</th>
@@ -53,47 +54,44 @@ Click on the buttons to display the fieldnames for the schemas.
   </thead>
   <tbody>
     <tr>
-      <th>PROJECT</th>
+      <th>0</th>
+      <td>SAMPLE_NAME_GPCF</td>
+      <td>Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.</td>
+      <td>0001_hgla_w23T14_sk-3</td>
+      <td>ILSe, ODCF</td>
+      <td>sample</td>
+      <td>[\w-]{1,20}</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PROJECT</td>
       <td>ODCF Project Name as registered in OTP</td>
       <td>OE0538_DO0001</td>
       <td>GUIDE</td>
       <td>sample</td>
-      <td>NaN</td>
+      <td>[\w-]{1,32}</td>
     </tr>
     <tr>
-      <th>PATIENT_ID</th>
+      <th>2</th>
+      <td>PATIENT_ID</td>
       <td>Individual ID for OTP</td>
       <td>mmus_01234</td>
       <td>GUIDE, Odomlab</td>
       <td>sample</td>
-      <td>NaN</td>
+      <td>[\w-]{1,32}</td>
     </tr>
     <tr>
-      <th>SAMPLE_NAME_GPCF</th>
-      <td>Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.</td>
-      <td>0001_hgla_w23T14_sk-3</td>
-      <td>GPCF, ODCF</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>WORKING_ID</th>
-      <td>Researchers Working ID for a sample</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>SPECIES</th>
+      <th>3</th>
+      <td>SPECIES</td>
       <td>Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.</td>
       <td>Mus musculus</td>
-      <td>ILSe</td>
+      <td>Odomlab</td>
       <td>sample</td>
-      <td>NaN</td>
+      <td>[\w-]{1,64}</td>
     </tr>
     <tr>
-      <th>STRAIN</th>
+      <th>4</th>
+      <td>STRAIN</td>
       <td>Identifier for the strain used. Use EFO, if possible</td>
       <td>CAST/Ej, C57BL/6, [CAST/EjxC57BL/6]F1</td>
       <td>Odomlab</td>
@@ -101,7 +99,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>GENOME</th>
+      <th>5</th>
+      <td>GENOME</td>
       <td>Genome used for QC at GPCF</td>
       <td>mm10</td>
       <td>ILSe</td>
@@ -109,7 +108,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>INDIVIDUAL</th>
+      <th>6</th>
+      <td>INDIVIDUAL</td>
       <td>ID for the individual (MOVI Number, Researcher's working ID)</td>
       <td>None</td>
       <td>Odomlab</td>
@@ -117,7 +117,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>SAMPLE_TYPE</th>
+      <th>7</th>
+      <td>SAMPLE_TYPE</td>
       <td>Sample Type used by OTP, describing samples *across* individual, please follow guidelines</td>
       <td>liver01, liver01-test01</td>
       <td>GUIDE, Odomlab</td>
@@ -125,7 +126,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>TISSUE</th>
+      <th>8</th>
+      <td>TISSUE</td>
       <td>Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.</td>
       <td>liver, skin, brain</td>
       <td>Odomlab</td>
@@ -133,7 +135,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>GENOTYPE</th>
+      <th>9</th>
+      <td>GENOTYPE</td>
       <td>Genotype according to EFO. Typically wildtype if not GMO.</td>
       <td>wild type</td>
       <td>Odomlab</td>
@@ -141,15 +144,17 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>PHENOTYPE</th>
+      <th>10</th>
+      <td>PHENOTYPE</td>
       <td>Description of the phenotype</td>
       <td>healthy, tumor</td>
-      <td>NaN</td>
+      <td>GUIDE, Odomlab</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>SEX</th>
+      <th>11</th>
+      <td>SEX</td>
       <td>Biological sex of the sampled individual.</td>
       <td>female, male, unknown</td>
       <td>ILSe, GUIDE, Odomlab</td>
@@ -157,7 +162,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>DATE_OF_BIRTH</th>
+      <th>12</th>
+      <td>DATE_OF_BIRTH</td>
       <td>Birthday of individual (format YYYY-MM-DD)</td>
       <td>2020-03-31</td>
       <td>Odomlab</td>
@@ -165,7 +171,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
     </tr>
     <tr>
-      <th>DATE_OF_DEATH</th>
+      <th>13</th>
+      <td>DATE_OF_DEATH</td>
       <td>Date of death (format YYYY-MM-DD)</td>
       <td>2020-01-04</td>
       <td>Odomlab</td>
@@ -173,7 +180,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
     </tr>
     <tr>
-      <th>WAY_OF_DEATH</th>
+      <th>14</th>
+      <td>WAY_OF_DEATH</td>
       <td>How was the mouse/animal killed?</td>
       <td>neck_fracture CO2_neck_fracture isofloran_neck_fracture</td>
       <td>Odomlab</td>
@@ -181,7 +189,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>TREATMENT</th>
+      <th>15</th>
+      <td>TREATMENT</td>
       <td>Any treatment / pertubation applied to the individual/ cell-line.</td>
       <td>acetone 25w_DMBA/TPA 10w_DMBA/TPA DMBA/TPA_or_TPA TPA UV</td>
       <td>Odomlab</td>
@@ -189,31 +198,17 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>INDIVIDUAL_REF_ID</th>
-      <td>ID/Label of the individual as referenced to in external database</td>
-      <td>12345</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>INDIVIDUAL_REF_DB</th>
-      <td>Label of the external mouse database e.g. MoVi / CRUK-CI</td>
-      <td>MoVi, CRUK-CI</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>CELL_INPUT[TOTAL_ALIVE CELLS]</th>
-      <td>Number of cell (if available) [TOTAL_ALIVE CELLS]</td>
-      <td>None</td>
+      <th>16</th>
+      <td>CELL_INPUT[TOTAL_ALIVE CELLS]</td>
+      <td>Number of cell,  if available</td>
+      <td>1234</td>
       <td>Odomlab</td>
       <td>experiment</td>
-      <td>NaN</td>
+      <td>[0-9]*</td>
     </tr>
     <tr>
-      <th>TISSUE_PREP_METHOD</th>
+      <th>17</th>
+      <td>TISSUE_PREP_METHOD</td>
       <td>Brief description to method of tissue preparation</td>
       <td>liver_ex Single cell MB RNA/DNATissueLyzerII Single cell C. Ernst 1. Enzymes 2. Trypsin 1. Trypsin 2. Enzymes skinbiopsy</td>
       <td>Odomlab</td>
@@ -221,7 +216,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>NA_PREP_METHOD</th>
+      <th>18</th>
+      <td>NA_PREP_METHOD</td>
       <td>Method (probably a kit) used to extract nucleic acid (NA)</td>
       <td>Modified Qiagen DNeasy blood&amp;tissue Qiagen Dneasy blood&amp;tissue Qiagen RNeasy micro</td>
       <td>Odomlab</td>
@@ -229,15 +225,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>QUBIT_NA_CONC[ng/ul]</th>
-      <td>DNA/RNA concentration measured by Qubit [ng/ul]</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>NOTES</th>
+      <th>19</th>
+      <td>NOTES</td>
       <td>Any additional notes, comments for the submission</td>
       <td>None</td>
       <td>Odomlab</td>
@@ -245,79 +234,26 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>LIB_PREP_KIT</th>
+      <th>20</th>
+      <td>LIB_PREP_KIT</td>
       <td>If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.</td>
       <td>scRNA_10x_v3, WGS_NEBNext_ULTRA_II, Agilent SureSelect Pre-capture, Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420</td>
-      <td>Odomlab, GUIDE, OTP</td>
+      <td>Odomlab, GUIDE</td>
       <td>experiment</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>LIBRARY_TYPE</th>
-      <td>Type of library and how it was generated.</td>
-      <td>WES_SureSelectXTHS WGS RNA_NEBNext_Low_Input scRNA_10x_v3 RNA_SMARTSeq_v4_Ultra_Low_Input scATAC scRNA_10x_nextgem</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>NA_INPUT_QUANTITY [ng]</th>
-      <td>Mass of input RNA/DNA</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>NA_INPUT_QUANTITY [ul]</th>
-      <td>Volume of input RNA/DNA</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>PCR_CYCLES_FIRST_AMP</th>
-      <td>Number of PCR cycles in first amplication</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>PCR_CYCLES_SECOND_AMP</th>
-      <td>Number of PCR cycles in second amplication</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>LIBRARY_CONC[ng/ul]</th>
-      <td>Nucleic acid concentration</td>
-      <td>14.4</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>AVERAGE_FRAGMENT_SIZE</th>
-      <td>Average fragment length (basepairs)</td>
+      <th>21</th>
+      <td>AVERAGE_FRAGMENT_SIZE</td>
+      <td>Experimentally determined average fragment length (basepairs) if available</td>
       <td>500</td>
       <td>Odomlab</td>
       <td>experiment</td>
       <td>[0-9]*</td>
     </tr>
     <tr>
-      <th>LIBRARY_MOLARITY[nmol]</th>
-      <td>Library molarity</td>
-      <td>46.94</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>BARCODETYPE</th>
+      <th>22</th>
+      <td>BARCODETYPE</td>
       <td>Description of barcode used</td>
       <td>SureSelect 16 Rxn 10X Chromium v3 NEB 96 oligos SureSelect 96 rxn</td>
       <td>Odomlab</td>
@@ -325,7 +261,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>BARCODE_WELL_I5</th>
+      <th>23</th>
+      <td>BARCODE_WELL_I5</td>
       <td>Well position of the barcode</td>
       <td>A7, N701, SI-GA-A6</td>
       <td>Odomlab</td>
@@ -333,15 +270,17 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>BARCODE_SEQ_I5</th>
+      <th>24</th>
+      <td>BARCODE_SEQ_I5</td>
       <td>Sequence of the I5 barcode</td>
       <td>TTACCGAC, TATCCTCT</td>
-      <td>Odomlab, ILSe</td>
+      <td>ILSe, Odomlab</td>
       <td>experiment</td>
       <td>[ATGC]*</td>
     </tr>
     <tr>
-      <th>BARCODE_WELL_I7</th>
+      <th>25</th>
+      <td>BARCODE_WELL_I7</td>
       <td>Well position of the barcode</td>
       <td>A7, S503</td>
       <td>Odomlab</td>
@@ -349,15 +288,17 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>BARCODE_SEQ_I7</th>
+      <th>26</th>
+      <td>BARCODE_SEQ_I7</td>
       <td>Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)</td>
       <td>TTACCGAC, GCGAGTAA</td>
-      <td>Odomlab, ILSe</td>
+      <td>ILSe, Odomlab</td>
       <td>experiment</td>
       <td>[ATGC, ]*</td>
     </tr>
     <tr>
-      <th>DNA_FRAGMENTATION_METHOD</th>
+      <th>27</th>
+      <td>DNA_FRAGMENTATION_METHOD</td>
       <td>Method used to fragment DNA</td>
       <td>enzymatic sonicator</td>
       <td>Odomlab</td>
@@ -365,7 +306,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>IMAGING_DATASET_ID</th>
+      <th>28</th>
+      <td>IMAGING_DATASET_ID</td>
       <td>Imaging dataset for Spatial Transcriptomics</td>
       <td>DOIMG-00001</td>
       <td>Odomlab</td>
@@ -373,39 +315,17 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>SEQUENCER</th>
-      <td>Free-txt description of sequencing platforms, read-length and run-type (for your information and submission to the sequencing center)</td>
-      <td>NextSeq 550 Paired-End 75bp Mid-Output</td>
-      <td>None</td>
-      <td>sequencing</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>MULTIPLEX</th>
-      <td>Number of samples in Multiplex</td>
-      <td>12</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>MULTIPLEX_NAME</th>
+      <th>29</th>
+      <td>MULTIPLEX_NAME</td>
       <td>Your initials followed by the date of submission format(ABYYYYMMDD)</td>
       <td>MB20190923</td>
-      <td>Odomlab</td>
+      <td>ILSe, Odomlab</td>
       <td>sequencing</td>
       <td>[A-Z]{2}[0-9]{4}[0-9]{2}[0-9]{2}</td>
     </tr>
     <tr>
-      <th>LANES_TOTAL</th>
-      <td>Number of lanes sequenced</td>
-      <td>1</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>ILSE_NO</th>
+      <th>30</th>
+      <td>ILSE_NO</td>
       <td>ILSE number as provided by GPCF/ILSe</td>
       <td>12345</td>
       <td>GUIDE, Odomlab</td>
@@ -413,55 +333,17 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>[0-9]{5,}</td>
     </tr>
     <tr>
-      <th>DATE_OF_SUBM</th>
-      <td>When was the sample submitted for sequencing? (format YYYY-MM-DD)</td>
-      <td>2020-10-31</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
-    </tr>
-    <tr>
-      <th>EXPER_LOCATION</th>
-      <td>Location of the library/experiement description</td>
-      <td>MB_folder, AT1_15_A1, AT1_45_A1</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>PLATE</th>
-      <td>Plate label used</td>
-      <td>T1 plate 1, 20200130</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>WELL_COLUMN</th>
-      <td>Column in the plate</td>
-      <td>1</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]{1,2}</td>
-    </tr>
-    <tr>
-      <th>WELL_ROW</th>
-      <td>Row in the plate</td>
-      <td>A</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[A-Z]</td>
-    </tr>
-    <tr>
-      <th>WELL</th>
+      <th>31</th>
+      <td>SINGLE_CELL_WELL_LABEL</td>
       <td>REQUIRED FOR SMARTSEQ2, combination of column and row</td>
       <td>1A</td>
-      <td>Odomlab</td>
+      <td>GUIDE</td>
       <td>sequencing</td>
       <td>[0-9]{1,2}[A-Z]</td>
     </tr>
     <tr>
-      <th>ANTIBODY_TARGET</th>
+      <th>32</th>
+      <td>ANTIBODY_TARGET</td>
       <td>Antibody target protein</td>
       <td>HNF4A, CEBPA</td>
       <td>Odomlab</td>
@@ -469,7 +351,8 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>ANTIBODY</th>
+      <th>33</th>
+      <td>ANTIBODY</td>
       <td>Antibody name, manufacturer etc.</td>
       <td>None</td>
       <td>Odomlab</td>
@@ -477,80 +360,9 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>ANTIBODY_LOT</th>
+      <th>34</th>
+      <td>ANTIBODY_LOT</td>
       <td>LOT number of the antibody</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>AMPURE_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>DYNABEADS_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>NaN</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>QUIBIT_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>CLARIOSTAR_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>NA_PREP_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>ENZYM_FRAG_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>LIBRARYPREP_KIT_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>INDEXPRIMER_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>CAPTURE_PROBES_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
       <td>None</td>
       <td>Odomlab</td>
       <td>other</td>
@@ -565,6 +377,7 @@ Click on the buttons to display the fieldnames for the schemas.
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Field Name</th>
       <th>description</th>
       <th>example</th>
       <th>used_for</th>
@@ -574,191 +387,17 @@ Click on the buttons to display the fieldnames for the schemas.
   </thead>
   <tbody>
     <tr>
-      <th>PROJECT</th>
-      <td>ODCF Project Name as registered in OTP</td>
-      <td>OE0538_DO0001</td>
-      <td>GUIDE</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>PATIENT_ID</th>
-      <td>Individual ID for OTP</td>
-      <td>mmus_01234</td>
-      <td>GUIDE, Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>SAMPLE_NAME_GPCF</th>
+      <th>0</th>
+      <td>SAMPLE_NAME_GPCF</td>
       <td>Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.</td>
       <td>0001_hgla_w23T14_sk-3</td>
-      <td>GPCF, ODCF</td>
+      <td>ILSe, ODCF</td>
       <td>sample</td>
-      <td>NaN</td>
+      <td>[\w-]{1,20}</td>
     </tr>
     <tr>
-      <th>SPECIES</th>
-      <td>Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.</td>
-      <td>Mus musculus</td>
-      <td>ILSe</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>SAMPLE_TYPE</th>
-      <td>Sample Type used by OTP, describing samples *across* individual, please follow guidelines</td>
-      <td>liver01, liver01-test01</td>
-      <td>GUIDE, Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>MULTIPLEX_NAME</th>
-      <td>Your initials followed by the date of submission format(ABYYYYMMDD)</td>
-      <td>MB20190923</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[A-Z]{2}[0-9]{4}[0-9]{2}[0-9]{2}</td>
-    </tr>
-    <tr>
-      <th>PHENOTYPE</th>
-      <td>Description of the phenotype</td>
-      <td>healthy, tumor</td>
-      <td>NaN</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>GENOTYPE</th>
-      <td>Genotype according to EFO. Typically wildtype if not GMO.</td>
-      <td>wild type</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>LIBRARY_TYPE</th>
-      <td>Type of library and how it was generated.</td>
-      <td>WES_SureSelectXTHS WGS RNA_NEBNext_Low_Input scRNA_10x_v3 RNA_SMARTSeq_v4_Ultra_Low_Input scATAC scRNA_10x_nextgem</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>EXPER_LOCATION</th>
-      <td>Location of the library/experiement description</td>
-      <td>MB_folder, AT1_15_A1, AT1_45_A1</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>PLATE</th>
-      <td>Plate label used</td>
-      <td>T1 plate 1, 20200130</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>WELL_COLUMN</th>
-      <td>Column in the plate</td>
-      <td>1</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]{1,2}</td>
-    </tr>
-    <tr>
-      <th>WELL_ROW</th>
-      <td>Row in the plate</td>
-      <td>A</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[A-Z]</td>
-    </tr>
-    <tr>
-      <th>WELL</th>
-      <td>REQUIRED FOR SMARTSEQ2, combination of column and row</td>
-      <td>1A</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]{1,2}[A-Z]</td>
-    </tr>
-    <tr>
-      <th>WORKING_ID</th>
-      <td>Researchers Working ID for a sample</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>STRAIN</th>
-      <td>Identifier for the strain used. Use EFO, if possible</td>
-      <td>CAST/Ej, C57BL/6, [CAST/EjxC57BL/6]F1</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>INDIVIDUAL</th>
-      <td>ID for the individual (MOVI Number, Researcher's working ID)</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>TREATMENT</th>
-      <td>Any treatment / pertubation applied to the individual/ cell-line.</td>
-      <td>acetone 25w_DMBA/TPA 10w_DMBA/TPA DMBA/TPA_or_TPA TPA UV</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>SEX</th>
-      <td>Biological sex of the sampled individual.</td>
-      <td>female, male, unknown</td>
-      <td>ILSe, GUIDE, Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>TISSUE</th>
-      <td>Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.</td>
-      <td>liver, skin, brain</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>DATE_OF_BIRTH</th>
-      <td>Birthday of individual (format YYYY-MM-DD)</td>
-      <td>2020-03-31</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
-    </tr>
-    <tr>
-      <th>DATE_OF_DEATH</th>
-      <td>Date of death (format YYYY-MM-DD)</td>
-      <td>2020-01-04</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
-    </tr>
-    <tr>
-      <th>WAY_OF_DEATH</th>
-      <td>How was the mouse/animal killed?</td>
-      <td>neck_fracture CO2_neck_fracture isofloran_neck_fracture</td>
-      <td>Odomlab</td>
-      <td>sample</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>GENOME</th>
+      <th>1</th>
+      <td>GENOME</td>
       <td>Genome used for QC at GPCF</td>
       <td>mm10</td>
       <td>ILSe</td>
@@ -766,151 +405,80 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>TISSUE_PREP_METHOD</th>
-      <td>Brief description to method of tissue preparation</td>
-      <td>liver_ex Single cell MB RNA/DNATissueLyzerII Single cell C. Ernst 1. Enzymes 2. Trypsin 1. Trypsin 2. Enzymes skinbiopsy</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
+      <th>2</th>
+      <td>SEX</td>
+      <td>Biological sex of the sampled individual.</td>
+      <td>female, male, unknown</td>
+      <td>ILSe, GUIDE, Odomlab</td>
+      <td>sample</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>NA_PREP_METHOD</th>
-      <td>Method (probably a kit) used to extract nucleic acid (NA)</td>
-      <td>Modified Qiagen DNeasy blood&amp;tissue Qiagen Dneasy blood&amp;tissue Qiagen RNeasy micro</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>QUBIT_NA_CONC[ng/ul]</th>
-      <td>DNA/RNA concentration measured by Qubit [ng/ul]</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>CELL_INPUT[TOTAL_ALIVE CELLS]</th>
-      <td>Number of cell (if available) [TOTAL_ALIVE CELLS]</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>LIB_PREP_KIT</th>
-      <td>If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.</td>
-      <td>scRNA_10x_v3, WGS_NEBNext_ULTRA_II, Agilent SureSelect Pre-capture, Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420</td>
-      <td>Odomlab, GUIDE, OTP</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>NA_INPUT_QUANTITY [ng]</th>
-      <td>Mass of input RNA/DNA</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>NA_INPUT_QUANTITY [ul]</th>
-      <td>Volume of input RNA/DNA</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>BARCODE_WELL_I7</th>
-      <td>Well position of the barcode</td>
-      <td>A7, S503</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>BARCODE_SEQ_I7</th>
-      <td>Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)</td>
-      <td>TTACCGAC, GCGAGTAA</td>
-      <td>Odomlab, ILSe</td>
-      <td>experiment</td>
-      <td>[ATGC, ]*</td>
-    </tr>
-    <tr>
-      <th>BARCODE_WELL_I5</th>
-      <td>Well position of the barcode</td>
-      <td>A7, N701, SI-GA-A6</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>BARCODE_SEQ_I5</th>
+      <th>3</th>
+      <td>BARCODE_SEQ_I5</td>
       <td>Sequence of the I5 barcode</td>
       <td>TTACCGAC, TATCCTCT</td>
-      <td>Odomlab, ILSe</td>
+      <td>ILSe, Odomlab</td>
       <td>experiment</td>
       <td>[ATGC]*</td>
     </tr>
     <tr>
-      <th>BARCODETYPE</th>
-      <td>Description of barcode used</td>
-      <td>SureSelect 16 Rxn 10X Chromium v3 NEB 96 oligos SureSelect 96 rxn</td>
-      <td>Odomlab</td>
+      <th>4</th>
+      <td>BARCODE_SEQ_I7</td>
+      <td>Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)</td>
+      <td>TTACCGAC, GCGAGTAA</td>
+      <td>ILSe, Odomlab</td>
       <td>experiment</td>
+      <td>[ATGC, ]*</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>MULTIPLEX_NAME</td>
+      <td>Your initials followed by the date of submission format(ABYYYYMMDD)</td>
+      <td>MB20190923</td>
+      <td>ILSe, Odomlab</td>
+      <td>sequencing</td>
+      <td>[A-Z]{2}[0-9]{4}[0-9]{2}[0-9]{2}</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>PROJECT</td>
+      <td>ODCF Project Name as registered in OTP</td>
+      <td>OE0538_DO0001</td>
+      <td>GUIDE</td>
+      <td>sample</td>
+      <td>[\w-]{1,32}</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>PATIENT_ID</td>
+      <td>Individual ID for OTP</td>
+      <td>mmus_01234</td>
+      <td>GUIDE, Odomlab</td>
+      <td>sample</td>
+      <td>[\w-]{1,32}</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>SAMPLE_TYPE</td>
+      <td>Sample Type used by OTP, describing samples *across* individual, please follow guidelines</td>
+      <td>liver01, liver01-test01</td>
+      <td>GUIDE, Odomlab</td>
+      <td>sample</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>PCR_CYCLES_FIRST_AMP</th>
-      <td>Number of PCR cycles in first amplication</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>PCR_CYCLES_SECOND_AMP</th>
-      <td>Number of PCR cycles in second amplication</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>LIBRARY_CONC[ng/ul]</th>
-      <td>Nucleic acid concentration</td>
-      <td>14.4</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>LIBRARY_MOLARITY[nmol]</th>
-      <td>Library molarity</td>
-      <td>46.94</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[+-]?([0-9]*[.])?[0-9]+</td>
-    </tr>
-    <tr>
-      <th>DNA_FRAGMENTATION_METHOD</th>
-      <td>Method used to fragment DNA</td>
-      <td>enzymatic sonicator</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
+      <th>9</th>
+      <td>PHENOTYPE</td>
+      <td>Description of the phenotype</td>
+      <td>healthy, tumor</td>
+      <td>GUIDE, Odomlab</td>
+      <td>sample</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>AVERAGE_FRAGMENT_SIZE</th>
-      <td>Average fragment length (basepairs)</td>
-      <td>500</td>
-      <td>Odomlab</td>
-      <td>experiment</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>ILSE_NO</th>
+      <th>10</th>
+      <td>ILSE_NO</td>
       <td>ILSE number as provided by GPCF/ILSe</td>
       <td>12345</td>
       <td>GUIDE, Odomlab</td>
@@ -918,71 +486,107 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>[0-9]{5,}</td>
     </tr>
     <tr>
-      <th>DATE_OF_SUBM</th>
-      <td>When was the sample submitted for sequencing? (format YYYY-MM-DD)</td>
-      <td>2020-10-31</td>
-      <td>Odomlab</td>
+      <th>11</th>
+      <td>SINGLE_CELL_WELL_LABEL</td>
+      <td>REQUIRED FOR SMARTSEQ2, combination of column and row</td>
+      <td>1A</td>
+      <td>GUIDE</td>
       <td>sequencing</td>
-      <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
+      <td>[0-9]{1,2}[A-Z]</td>
     </tr>
     <tr>
-      <th>SEQUENCER</th>
-      <td>Free-txt description of sequencing platforms, read-length and run-type (for your information and submission to the sequencing center)</td>
-      <td>NextSeq 550 Paired-End 75bp Mid-Output</td>
-      <td>None</td>
-      <td>sequencing</td>
+      <th>12</th>
+      <td>TREATMENT</td>
+      <td>Any treatment / pertubation applied to the individual/ cell-line.</td>
+      <td>acetone 25w_DMBA/TPA 10w_DMBA/TPA DMBA/TPA_or_TPA TPA UV</td>
+      <td>Odomlab</td>
+      <td>sample</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>MULTIPLEX</th>
-      <td>Number of samples in Multiplex</td>
-      <td>12</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>LANES_TOTAL</th>
-      <td>Number of lanes sequenced</td>
-      <td>1</td>
-      <td>Odomlab</td>
-      <td>sequencing</td>
-      <td>[0-9]*</td>
-    </tr>
-    <tr>
-      <th>ANTIBODY_TARGET</th>
-      <td>Antibody target protein</td>
-      <td>HNF4A, CEBPA</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>ANTIBODY</th>
-      <td>Antibody name, manufacturer etc.</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>ANTIBODY_LOT</th>
-      <td>LOT number of the antibody</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>IMAGING_DATASET_ID</th>
-      <td>Imaging dataset for Spatial Transcriptomics</td>
-      <td>DOIMG-00001</td>
+      <th>13</th>
+      <td>BARCODE_WELL_I5</td>
+      <td>Well position of the barcode</td>
+      <td>A7, N701, SI-GA-A6</td>
       <td>Odomlab</td>
       <td>experiment</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>NOTES</th>
+      <th>14</th>
+      <td>TISSUE_PREP_METHOD</td>
+      <td>Brief description to method of tissue preparation</td>
+      <td>liver_ex Single cell MB RNA/DNATissueLyzerII Single cell C. Ernst 1. Enzymes 2. Trypsin 1. Trypsin 2. Enzymes skinbiopsy</td>
+      <td>Odomlab</td>
+      <td>experiment</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DATE_OF_BIRTH</td>
+      <td>Birthday of individual (format YYYY-MM-DD)</td>
+      <td>2020-03-31</td>
+      <td>Odomlab</td>
+      <td>sample</td>
+      <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>DNA_FRAGMENTATION_METHOD</td>
+      <td>Method used to fragment DNA</td>
+      <td>enzymatic sonicator</td>
+      <td>Odomlab</td>
+      <td>experiment</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>STRAIN</td>
+      <td>Identifier for the strain used. Use EFO, if possible</td>
+      <td>CAST/Ej, C57BL/6, [CAST/EjxC57BL/6]F1</td>
+      <td>Odomlab</td>
+      <td>sample</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>WAY_OF_DEATH</td>
+      <td>How was the mouse/animal killed?</td>
+      <td>neck_fracture CO2_neck_fracture isofloran_neck_fracture</td>
+      <td>Odomlab</td>
+      <td>sample</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>SPECIES</td>
+      <td>Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.</td>
+      <td>Mus musculus</td>
+      <td>Odomlab</td>
+      <td>sample</td>
+      <td>[\w-]{1,64}</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>BARCODETYPE</td>
+      <td>Description of barcode used</td>
+      <td>SureSelect 16 Rxn 10X Chromium v3 NEB 96 oligos SureSelect 96 rxn</td>
+      <td>Odomlab</td>
+      <td>experiment</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>DATE_OF_DEATH</td>
+      <td>Date of death (format YYYY-MM-DD)</td>
+      <td>2020-01-04</td>
+      <td>Odomlab</td>
+      <td>sample</td>
+      <td>[0-9]{4}-[0-9]{2}-[0-9]{2}</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>NOTES</td>
       <td>Any additional notes, comments for the submission</td>
       <td>None</td>
       <td>Odomlab</td>
@@ -990,92 +594,112 @@ Click on the buttons to display the fieldnames for the schemas.
       <td>NaN</td>
     </tr>
     <tr>
-      <th>AMPURE_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
+      <th>23</th>
+      <td>BARCODE_WELL_I7</td>
+      <td>Well position of the barcode</td>
+      <td>A7, S503</td>
+      <td>Odomlab</td>
+      <td>experiment</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>LIB_PREP_KIT</td>
+      <td>If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.</td>
+      <td>scRNA_10x_v3, WGS_NEBNext_ULTRA_II, Agilent SureSelect Pre-capture, Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420</td>
+      <td>Odomlab, GUIDE</td>
+      <td>experiment</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>IMAGING_DATASET_ID</td>
+      <td>Imaging dataset for Spatial Transcriptomics</td>
+      <td>DOIMG-00001</td>
+      <td>Odomlab</td>
+      <td>experiment</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>ANTIBODY_LOT</td>
+      <td>LOT number of the antibody</td>
       <td>None</td>
       <td>Odomlab</td>
       <td>other</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>DYNABEADS_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>NaN</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>QUIBIT_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
+      <th>27</th>
+      <td>NA_PREP_METHOD</td>
+      <td>Method (probably a kit) used to extract nucleic acid (NA)</td>
+      <td>Modified Qiagen DNeasy blood&amp;tissue Qiagen Dneasy blood&amp;tissue Qiagen RNeasy micro</td>
       <td>Odomlab</td>
-      <td>other</td>
+      <td>experiment</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>CLARIOSTAR_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
+      <th>28</th>
+      <td>AVERAGE_FRAGMENT_SIZE</td>
+      <td>Experimentally determined average fragment length (basepairs) if available</td>
+      <td>500</td>
       <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
+      <td>experiment</td>
+      <td>[0-9]*</td>
     </tr>
     <tr>
-      <th>NA_PREP_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>ENZYM_FRAG_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>LIBRARYPREP_KIT_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>INDEXPRIMER_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>CAPTURE_PROBES_LOT</th>
-      <td>LOT number as provided by manufacturer</td>
-      <td>None</td>
-      <td>Odomlab</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>INDIVIDUAL_REF_ID</th>
-      <td>ID/Label of the individual as referenced to in external database</td>
-      <td>12345</td>
+      <th>29</th>
+      <td>TISSUE</td>
+      <td>Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.</td>
+      <td>liver, skin, brain</td>
       <td>Odomlab</td>
       <td>sample</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>INDIVIDUAL_REF_DB</th>
-      <td>Label of the external mouse database e.g. MoVi / CRUK-CI</td>
-      <td>MoVi, CRUK-CI</td>
+      <th>30</th>
+      <td>GENOTYPE</td>
+      <td>Genotype according to EFO. Typically wildtype if not GMO.</td>
+      <td>wild type</td>
       <td>Odomlab</td>
       <td>sample</td>
       <td>NaN</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>INDIVIDUAL</td>
+      <td>ID for the individual (MOVI Number, Researcher's working ID)</td>
+      <td>None</td>
+      <td>Odomlab</td>
+      <td>sample</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>ANTIBODY</td>
+      <td>Antibody name, manufacturer etc.</td>
+      <td>None</td>
+      <td>Odomlab</td>
+      <td>other</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>ANTIBODY_TARGET</td>
+      <td>Antibody target protein</td>
+      <td>HNF4A, CEBPA</td>
+      <td>Odomlab</td>
+      <td>other</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>CELL_INPUT[TOTAL_ALIVE CELLS]</td>
+      <td>Number of cell,  if available</td>
+      <td>1234</td>
+      <td>Odomlab</td>
+      <td>experiment</td>
+      <td>[0-9]*</td>
     </tr>
   </tbody>
 </table>
