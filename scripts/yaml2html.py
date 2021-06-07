@@ -27,8 +27,8 @@ Date: {date} <br />
 <p>
 <h2> Download spreadsheets</h2>
 <ul>
-<li> <a href="sheets/sequencing_spreadsheet_template.by_category.xlsx"> [new] Sorted by category (Sample, Experiment, Sequencing Info, LOTs) </a> </li> 
 <li> <a href="sheets/sequencing_spreadsheet_template.by_provider.xlsx"> ["classic"] Sorted by Provider (ILSe, etc) </a> </li> 
+<li> <a href="sheets/sequencing_spreadsheet_template.by_category.xlsx"> [new] Sorted by category (Sample, Experiment, Sequencing Info, LOTs) </a> </li> 
 </ul>
 
 </p>
@@ -41,8 +41,8 @@ Click on the buttons to display the fieldnames for the schemas.
 </p>
 <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'by_category')"  id="defaultOpen">By Category</button>
-  <button class="tablinks" onclick="openTab(event, 'by_provider')">By Provider</button>
+  <button class="tablinks" onclick="openTab(event, 'by_provider')" id="defaultOpen">By Provider</button>
+  <button class="tablinks" onclick="openTab(event, 'by_category')" >By Category</button>
 
 </div>
 '''
