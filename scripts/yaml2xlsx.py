@@ -31,7 +31,29 @@ def order_df(df):
         guide = t2[t2["used_for"] == "GUIDE"].index.to_list()
         odomlab = t2[t2["used_for"] == "Odomlab"].index.to_list()
         odomlab_no_duplicates = list(set(odomlab) - set(ilse) - set(guide))
-        return ilse + guide + odomlab_no_duplicates
+        odomlab_manual = [
+            'SPECIES',
+            'STRAIN',
+            'INDIVIDUAL',
+            'TISSUE',
+            'GENOTYPE',
+            'TREATMENT',
+            'WAY_OF_DEATH',
+            'DATE_OF_BIRTH',
+            'DATE_OF_DEATH',
+            'TISSUE_PREP_METHOD',
+            'CELL_INPUT[TOTAL_ALIVE CELLS]',
+            'NA_PREP_METHOD',
+            'BARCODETYPE',
+            'BARCODE_WELL_I5',
+            'BARCODE_WELL_I7',
+            'DNA_FRAGMENTATION_METHOD',
+            'AVERAGE_FRAGMENT_SIZE',
+            'IMAGING_DATASET_ID',
+            'ANTIBODY',
+            'ANTIBODY_TARGET',
+            'NOTES']
+        return ilse + guide + odomlab_manual
 
     ordered_columns = _get_order(df)
     print(ordered_columns)
