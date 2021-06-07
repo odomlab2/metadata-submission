@@ -8,21 +8,20 @@ table {
 
 }
 th:nth-child(1) {
+    width: 20px;
+}
+th:nth-child(2) {
     width: 200px;
 }
 
 /* the second */
-th:nth-child(2) {
-    width: 400px;
-}
-
-/* the third */
 th:nth-child(3) {
     width: 200px;
 }
+
 /* the third */
 th:nth-child(4) {
-    width: 100px;
+    width: 400px;
 }
 /* the third */
 th:nth-child(5) {
@@ -30,6 +29,10 @@ th:nth-child(5) {
 }
 /* the third */
 th:nth-child(6) {
+    width: 100px;
+}
+/* the third */
+th:nth-child(7) {
     width: 100px;
 }
 

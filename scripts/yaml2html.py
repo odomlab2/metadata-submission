@@ -1,5 +1,6 @@
 
 import subprocess
+import numpy as np
 from shutil import copyfile
 from os.path import dirname, join, basename
 from datetime import date
@@ -99,6 +100,8 @@ def write_html(htmlfile="template.html", css_file="scripts/df_style.css", **mult
         for df_label, df in multiple_df.items():
             df = df.transpose()
             df.example = df.example.apply(list_to_string)
-            f.write(_write_table(df_label, df))
+            df.insert(loc=0, column='Field Name', value=df.index)
+            #df.insert(loc=0, column='#', value=np.arange(len(df)))
+            f.write(_write_table(df_label, df.reset_index(drop=True)))
 
         f.write(CSS_TEXT_FOOTER)
