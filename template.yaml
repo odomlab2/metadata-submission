@@ -152,7 +152,7 @@ LIB_PREP_KIT:
   description: If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.
   example: [scRNA_10x_v3, WGS_NEBNext_ULTRA_II,Agilent SureSelect Pre-capture,Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420]
   category: experiment
-  used_for: Odomlab, GUIDE
+  used_for: GUIDE, Odomlab
 
 AVERAGE_FRAGMENT_SIZE:
   description: Experimentally determined average fragment length (basepairs) if available
