@@ -4,28 +4,28 @@ SAMPLE_NAME_GPCF:
   example: 0001_hgla_w23T14_sk-3
   used_for: ILSe, ODCF
   category: sample
-  regex: "[A-Za-z0-9_-]{20}"
+  regex: "[\w-]{20}"
 
 PROJECT:
   description: ODCF Project Name as registered in OTP
   example: OE0538_DO0001
   used_for: GUIDE
   category: sample
-  regex: "[A-Za-z0-9_-]{32}"
+  regex: "[\w-]{32}"
 
 PATIENT_ID:
   description: Individual ID for OTP
   example: mmus_01234
   used_for: GUIDE, Odomlab
   category: sample
-  regex: "[A-Za-z0-9_-]{32}"
+  regex: "[\w-]{32}"
 
 SPECIES:
   description: Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.
   example: Mus musculus
   used_for: Odomlab
   category: sample
-  regex: "[A-Za-z ]{64}"
+  regex: "[\w-]{64}"
 
 STRAIN:
   description: Identifier for the strain used. Use EFO, if possible
