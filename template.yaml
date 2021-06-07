@@ -11,21 +11,21 @@ PROJECT:
   example: OE0538_DO0001
   used_for: GUIDE
   category: sample
-  regex: "[\w-]{,32}"
+  regex: "[\w-]{1,32}"
 
 PATIENT_ID:
   description: Individual ID for OTP
   example: mmus_01234
   used_for: GUIDE, Odomlab
   category: sample
-  regex: "[\w-]{,32}"
+  regex: "[\w-]{1,32}"
 
 SPECIES:
   description: Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.
   example: Mus musculus
   used_for: Odomlab
   category: sample
-  regex: "[\w-]{,64}"
+  regex: "[\w-]{1,64}"
 
 STRAIN:
   description: Identifier for the strain used. Use EFO, if possible
