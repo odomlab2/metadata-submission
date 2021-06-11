@@ -12,8 +12,8 @@
 <h1> List of Metadata fields </h1>
 
 <p>
-Version: 22e186f <br />
-Date: 2021-06-07 <br />
+Version: 8ebed5f <br />
+Date: 2021-06-11 <br />
 </p>
 
 <p>
@@ -119,11 +119,11 @@ Click on the buttons to display the fieldnames for the schemas.
     <tr>
       <th>7</th>
       <td>SAMPLE_TYPE</td>
-      <td>Sample Type used by OTP, describing samples *across* individual, please follow guidelines</td>
+      <td>Sample Type used by OTP, describing samples *across* individual. (lowercase and dash(-) only, end with digit)</td>
       <td>liver01, liver01-test01</td>
       <td>GUIDE, Odomlab</td>
       <td>sample</td>
-      <td>NaN</td>
+      <td>[a-z0-9-]*</td>
     </tr>
     <tr>
       <th>8</th>
@@ -452,11 +452,11 @@ Click on the buttons to display the fieldnames for the schemas.
     <tr>
       <th>8</th>
       <td>SAMPLE_TYPE</td>
-      <td>Sample Type used by OTP, describing samples *across* individual, please follow guidelines</td>
+      <td>Sample Type used by OTP, describing samples *across* individual. (lowercase and dash(-) only, end with digit)</td>
       <td>liver01, liver01-test01</td>
       <td>GUIDE, Odomlab</td>
       <td>sample</td>
-      <td>NaN</td>
+      <td>[a-z0-9-]*</td>
     </tr>
     <tr>
       <th>9</th>
