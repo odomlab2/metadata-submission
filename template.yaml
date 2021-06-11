@@ -1,0 +1,255 @@
+# Animal IDs:
+SAMPLE_NAME_GPCF:
+  description: Sample ID used within a single ILSe submission for GPCF. Limited to 20 characters.
+  example: 0001_hgla_w23T14_sk-3
+  used_for: ILSe, ODCF
+  category: sample
+  regex: '[\w-]{1,20}'
+
+PROJECT:
+  description: ODCF Project Name as registered in OTP
+  example: OE0538_DO0001
+  used_for: GUIDE
+  category: sample
+  regex: '[\w-]{1,32}'
+
+PATIENT_ID:
+  description: Individual ID for OTP
+  example: mmus_01234
+  used_for: GUIDE, Odomlab
+  category: sample
+  regex: '[\w-]{1,32}'
+
+SPECIES:
+  description: Scientific name of a species. Note that CAST/Ej is a strain of Mus musculus.
+  example: Mus musculus
+  used_for: Odomlab
+  category: sample
+  regex: '[\w-]{1,64}'
+
+STRAIN:
+  description: Identifier for the strain used. Use EFO, if possible
+  example: ['CAST/Ej', 'C57BL/6', '[CAST/EjxC57BL/6]F1']
+  used_for: Odomlab
+  category: sample
+
+GENOME:
+  description: Genome used for QC at GPCF
+  example: mm10
+  used_for: ILSe
+  category: sample
+
+INDIVIDUAL:
+  description: ID for the individual (MOVI Number, Researcher's working ID)
+  example: None
+  used_for: Odomlab
+  category: sample
+
+SAMPLE_TYPE:
+  description: Sample Type used by OTP, describing samples *across* individual. (lowercase and dash(-) only, end with digit)
+  example: liver01, liver01-test01
+  used_for: GUIDE, Odomlab
+  category: sample
+  regex: "[a-z0-9-]*"
+
+TISSUE:
+  description: Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.
+  example: liver, skin, brain
+  used_for: Odomlab
+  category: sample
+
+GENOTYPE:
+  description: Genotype according to EFO. Typically wildtype if not GMO.
+  example: 'wild type'
+  used_for: Odomlab
+  category: sample
+
+# Phenotype data:
+PHENOTYPE:
+  description: Description of the phenotype
+  example: ['healthy', 'tumor']
+  used_for: GUIDE, Odomlab
+  category: sample
+
+SEX:
+  description: Biological sex of the sampled individual.
+  example: female, male, unknown
+  used_for: ILSe, GUIDE, Odomlab
+  category: sample
+
+DATE_OF_BIRTH:
+  description: Birthday of individual (format YYYY-MM-DD)
+  example: 2020-03-31
+  regex: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  used_for: Odomlab
+  category: sample
+
+DATE_OF_DEATH:
+  description: Date of death (format YYYY-MM-DD)
+  example: 2020-01-04
+  regex: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  used_for: Odomlab
+  category: sample
+
+WAY_OF_DEATH:
+  description: How was the mouse/animal killed?
+  example:
+  - neck_fracture
+    CO2_neck_fracture
+    isofloran_neck_fracture
+  used_for: Odomlab
+  category: sample
+
+TREATMENT:
+  description: Any treatment / pertubation applied to the individual/ cell-line.
+  example:
+  - acetone
+    25w_DMBA/TPA
+    10w_DMBA/TPA
+    DMBA/TPA_or_TPA
+    TPA
+    UV
+  category: sample
+  used_for: Odomlab
+
+# “Experiment info”:
+CELL_INPUT[TOTAL_ALIVE CELLS]:
+  description: Number of cell,  if available
+  example: 1234
+  regex: '[0-9]*'
+  category: experiment
+  used_for: Odomlab
+
+TISSUE_PREP_METHOD:
+  description: Brief description to method of tissue preparation
+  example:
+  - liver_ex
+    Single cell MB
+    RNA/DNATissueLyzerII
+    Single cell C. Ernst
+    1. Enzymes 2. Trypsin
+    1. Trypsin 2. Enzymes
+    skinbiopsy
+  category: experiment
+  used_for: Odomlab
+
+NA_PREP_METHOD:
+  description: Method (probably a kit) used to extract nucleic acid (NA)
+  example:
+    - Modified Qiagen DNeasy blood&tissue
+      Qiagen Dneasy blood&tissue
+      Qiagen RNeasy micro
+  category: experiment
+  used_for: Odomlab
+
+NOTES:
+  description: Any additional notes, comments for the submission
+  example:
+  category: experiment
+  used_for: Odomlab
+
+# “Library prep info”:
+LIB_PREP_KIT:
+  description: If using a new Kit, check first with ODCF because they need to register it to their database. Use their descriptor.
+  example: [scRNA_10x_v3, WGS_NEBNext_ULTRA_II,Agilent SureSelect Pre-capture,Agilent SureSelect XT Low input Mouse AllExon, Agilent SureSelect Post-capture, NEBNext RNA Low Input - E6420]
+  category: experiment
+  used_for: GUIDE, Odomlab
+
+AVERAGE_FRAGMENT_SIZE:
+  description: Experimentally determined average fragment length (basepairs) if available
+  example: 500
+  regex: '[0-9]*'
+  category: experiment
+  used_for: Odomlab
+
+BARCODETYPE:
+  description: Description of barcode used
+  example:
+    - SureSelect 16 Rxn
+      10X Chromium v3
+      NEB 96 oligos
+      SureSelect 96 rxn
+  category: experiment
+  used_for: Odomlab
+
+BARCODE_WELL_I5:
+  description: Well position of the barcode
+  example: A7, N701, SI-GA-A6
+  category: experiment
+  used_for: Odomlab
+
+BARCODE_SEQ_I5:
+  description:  Sequence of the I5 barcode
+  example: TTACCGAC, TATCCTCT
+  regex: '[ATGC]*'
+  category: experiment
+  used_for: ILSe, Odomlab
+
+BARCODE_WELL_I7:
+  description: Well position of the barcode
+  example: A7, S503
+  category: experiment
+  used_for: Odomlab
+
+BARCODE_SEQ_I7:
+  description: Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)
+  example: TTACCGAC, GCGAGTAA
+  regex: '[ATGC, ]*'
+  category: experiment
+  used_for: ILSe, Odomlab
+
+DNA_FRAGMENTATION_METHOD:
+  description: Method used to fragment DNA
+  example:
+  - enzymatic
+    sonicator
+  category: experiment
+  used_for: Odomlab
+
+IMAGING_DATASET_ID:
+  description: Imaging dataset for Spatial Transcriptomics
+  example:
+    - DOIMG-00001
+  category: experiment
+  used_for: Odomlab
+
+
+# “Sequencing info”:
+MULTIPLEX_NAME:
+  description: Your initials followed by the date of submission format(ABYYYYMMDD)
+  example: MB20190923
+  regex: '[A-Z]{2}[0-9]{4}[0-9]{2}[0-9]{2}'
+  used_for: ILSe, Odomlab
+  category: sequencing
+
+ILSE_NO:
+  description: ILSE number as provided by GPCF/ILSe
+  example: 012345
+  regex: '[0-9]{5,}'
+  category: sequencing
+  used_for: GUIDE, Odomlab
+
+SINGLE_CELL_WELL_LABEL:
+  description: REQUIRED FOR SMARTSEQ2, combination of column and row
+  example: 1A
+  regex: '[0-9]{1,2}[A-Z]'
+  category: sequencing
+  used_for: GUIDE
+
+# “Antibody info” (maybe more useful with the ‘library prep’ info if you’re doing ChIP):
+ANTIBODY_TARGET:
+  description: Antibody target protein
+  example: HNF4A, CEBPA
+  category: other
+  used_for: Odomlab
+ANTIBODY:
+  description: Antibody name, manufacturer etc.
+  example:
+  category: other
+  used_for: Odomlab
+#ANTIBODY_LOT:
+#  description: LOT number of the antibody
+#  example:
+#  category: other
+#  used_for: Odomlab
+

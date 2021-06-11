@@ -1,0 +1,52 @@
+name: metadata-submission
+# why not
+on: [push]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          # $CONDA is an environment variable pointing to the root of the miniconda directory
+          $CONDA/bin/conda env update --file environment.yml --name base
+          $CONDA/bin/conda init bash
+          source ~/.bashrc
+          python -m pip install --upgrade pip
+          pip install flake8 pytest pandas openpyxl ruamel.yaml styleframe
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7 --show-source --statistics #,F82
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with pytest
+        run: |
+          $CONDA/bin/conda activate base
+          export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
+          py.test  # test/test_template.py
+      - name: Build
+        run: |
+          chmod +x ./scripts/yaml2xlsx.py
+          mkdir -p build/{sheets,html}
+          export PYTHONPATH="$(pwd):scripts/":$PYTHOPATH
+          ./scripts/yaml2xlsx.py
+      - name: Store template
+        uses: actions/upload-artifact@v2
+        with:
+          name: excel-template
+          path: build/sheets/sequencing_spreadsheet_template.xlsx
+      - name: Store template
+        uses: actions/upload-artifact@v2
+        with:
+          name: excel-template
+          path: build/template.html
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build/ # The folder the action should deploy.

@@ -1,0 +1,91 @@
+body
+{
+    padding-left: 20px;
+}
+table {
+    table-layout: fixed;
+    overflow-wrap: break-word;
+
+}
+th:nth-child(1) {
+    width: 20px;
+}
+th:nth-child(2) {
+    width: 200px;
+}
+
+/* the second */
+th:nth-child(3) {
+    width: 400px;
+}
+
+/* the third */
+th:nth-child(4) {
+    width: 200px;
+}
+/* the third */
+th:nth-child(5) {
+    width: 100px;
+}
+/* the third */
+th:nth-child(6) {
+    width: 100px;
+}
+/* the third */
+th:nth-child(7) {
+    width: 100px;
+}
+
+
+pre {
+    white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+    white-space: -pre-wrap; /* Opera */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word; /* IE 5.5+ */
+    width: 725px
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
