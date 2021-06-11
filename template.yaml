@@ -46,10 +46,11 @@ INDIVIDUAL:
   category: sample
 
 SAMPLE_TYPE:
-  description: Sample Type used by OTP, describing samples *across* individual, please follow guidelines
+  description: Sample Type used by OTP, describing samples *across* individual. (lowercase and dash(-) only, end with digit)
   example: liver01, liver01-test01
   used_for: GUIDE, Odomlab
   category: sample
+  regex: "[a-z0-9-]*"
 
 TISSUE:
   description: Descriptor of the tissue, if not given it's tried to parse from SAMPLE_TYPE.
