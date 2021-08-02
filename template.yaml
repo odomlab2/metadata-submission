@@ -192,9 +192,9 @@ BARCODE_WELL_I7:
   used_for: Odomlab
 
 BARCODE_SEQ_I7:
-  description: Sequence of the I7 barcode (for 10x-singcell this can be a comma-separated list of 4 indeces)
-  example: TTACCGAC, GCGAGTAA
-  regex: '[ATGC, ]*'
+  description: Sequence of the I7 barcode (for 10x-Single Cell, you need enter four rows to supply the barcodes and add a "_a,_b,_c, _d" suffix to the Sample Type)
+  example: TTACCGAC
+  regex: '[ATGC]*'
   category: experiment
   used_for: ILSe, Odomlab
 
